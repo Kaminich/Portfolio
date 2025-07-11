@@ -59,8 +59,8 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <User className="w-6 h-6 mr-4" />
-            <h2 className="text-md font-bold">About Me</h2>
+            <User className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>About Me</h2>
           </div>
           <About isDark={isDark} />
           <motion.a
@@ -70,7 +70,7 @@ function Portfolio() {
             viewport={{ once: false, amount: 0 }}
             href="/Nguyen-Cao-Minh-CV-SE.pdf"
             download
-            className="flex items-center justify-center w-50 px-8 py-3 bg-gradient-to-r from-gray-800 to-gray-700 text-white rounded-full font-medium hover:text-white transform transition-all duration-300 hover:scale-105 hover:bg-gray-900/70 shadow-lg z-99"
+            className={`flex items-center justify-center w-50 px-8 py-3 ${isDark ? 'bg-gradient-to-r from-gray-800 to-gray-700' : 'bg-gradient-to-r from-gray-600 to-black'} text-white rounded-full font-medium hover:text-white transform transition-all duration-300 hover:scale-105 hover:bg-gray-900/70 shadow-lg z-99`}
           >
             <Download className="w-5 h-5 mr-2" />
             Download CV
@@ -92,8 +92,8 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <Briefcase className="w-6 h-6 mr-4" />
-            <h2 className="text-md font-bold">Experience</h2>
+            <Briefcase className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Experience</h2>
           </div>
           <Experience isDark={isDark} />
         </motion.div>
@@ -113,8 +113,8 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <Code className="w-6 h-6 mr-4" />
-            <h2 className="text-md font-bold">Featured Projects</h2>
+            <Code className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Featured Projects</h2>
           </div>
           <Project isDark={isDark} />
         </motion.div>
@@ -134,8 +134,8 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <BookOpen className="w-6 h-6 mr-4" />
-            <h2 className="text-md font-bold">Skills & Technologies</h2>
+            <BookOpen className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Skills & Technologies</h2>
           </div>
           <Skill isDark={isDark} />
         </motion.div>
@@ -155,8 +155,8 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <Award className="w-6 h-6 mr-4" />
-            <h2 className="text-md font-bold">Achievements</h2>
+            <Award className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Achievements</h2>
           </div>
           <Achievement isDark={isDark} />
         </motion.div>
@@ -176,8 +176,8 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <MessageCircle className="w-6 h-6 mr-4" />
-            <h2 className="text-md font-bold">Contact Me</h2>
+            <MessageCircle className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Contact Me</h2>
           </div>
           <Contact isDark={isDark} />
         </motion.div>

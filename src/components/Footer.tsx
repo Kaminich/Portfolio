@@ -23,9 +23,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                 }`}
         >
             <div className="max-w-6xl mx-auto">
-                {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-20 mb-8 sm:mb-12">
-                    {/* Contact Section */}
                     <div className="text-center md:text-left space-y-4 sm:space-y-6 lg:col-span-1">
                         <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Let's Connect</h3>
                         <p
@@ -73,7 +71,6 @@ export function Footer({ isDark }: ThemeButtonProps) {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
                     <div className="text-center md:text-left">
                         <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Quick Links</h3>
                         <ul className="space-y-2 sm:space-y-3">
@@ -91,7 +88,6 @@ export function Footer({ isDark }: ThemeButtonProps) {
                         </ul>
                     </div>
 
-                    {/* Social Links */}
                     <div className="text-center md:text-left">
                         <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Connect & Follow</h3>
 
@@ -151,7 +147,6 @@ export function Footer({ isDark }: ThemeButtonProps) {
                     </div>
                 </div>
 
-                {/* Call to Action Section */}
                 <div
                     className={`rounded-xl p-6 sm:p-8 mb-6 sm:mb-8 text-center transition-all duration-300 border-2 hover:shadow-lg ${isDark
                         ? "bg-gray-800 border-gray-700 hover:border-gray-600"
@@ -168,7 +163,21 @@ export function Footer({ isDark }: ThemeButtonProps) {
 
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                         <a
-                            href="mailto:caominhnguyen03@gmail.com"
+                            href={
+                                typeof window !== "undefined" && window.innerWidth >= 1024
+                                    ? "https://mail.google.com/mail/?view=cm&fs=1&to=caominhnguyen03@gmail.com"
+                                    : "mailto:caominhnguyen03@gmail.com"
+                            }
+                            onClick={e => {
+                                if (typeof window !== "undefined") {
+                                    const isDesktop = window.innerWidth >= 1024;
+                                    if (isDesktop) {
+                                        return;
+                                    }
+                                    e.currentTarget.href = "mailto:caominhnguyen03@gmail.com";
+                                }
+                            }}
+                            target="_blank"
                             className={`inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 ${isDark
                                 ? "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500"
                                 : "bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-400"

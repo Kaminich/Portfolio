@@ -40,7 +40,21 @@ export default function Hero({ isDark }: ThemeButtonProps) {
                     </span>
                 </a>
                 <a
-                    href="mailto:caominhnguyen03@gmail.com"
+                    href={
+                        typeof window !== "undefined" && window.innerWidth >= 1024
+                            ? "https://mail.google.com/mail/?view=cm&fs=1&to=caominhnguyen03@gmail.com"
+                            : "mailto:caominhnguyen03@gmail.com"
+                    }
+                    onClick={e => {
+                        if (typeof window !== "undefined") {
+                            const isDesktop = window.innerWidth >= 1024;
+                            if (isDesktop) {
+                                return;
+                            }
+                            e.currentTarget.href = "mailto:caominhnguyen03@gmail.com";
+                        }
+                    }}
+                    target="_blank"
                     className={`group relative flex items-center justify-center w-12 h-12 border-2 rounded-full font-medium transform transition-all duration-300 hover:scale-105 overflow-hidden hover:w-[5.5rem] ${isDark
                         ? 'border-red-600/90 bg-red-600/90 text-white/80 hover:bg-red-600 hover:shadow-red-600/25 hover:text-white'
                         : 'border-red-600 text-red-600 hover:bg-red-500 hover:shadow-red-600/25 hover:text-white'

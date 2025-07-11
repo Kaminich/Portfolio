@@ -20,7 +20,7 @@ interface SkillsData {
     soft: Skill[];
 }
 
-const skills: SkillsData = {
+export const skills: SkillsData = {
     technical: {
         languages: [
             { name: "HTML/CSS", wUp: 32, wDown: 32, height: 112, style: {} },
@@ -103,7 +103,7 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                         <div className={`h-2 w-67 mr-2.5 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
                                     </motion.div>
 
-                                    <div className="flex justify-between items-start gap-25">
+                                    <div className="flex justify-between items-start sm:gap-10 md:gap-25">
 
                                         <div className="flex flex-col items-center">
                                             <motion.div

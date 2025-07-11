@@ -15,12 +15,12 @@ export default function LoadingScreen() {
     }, []);
 
     return isReady ? <Portfolio /> : (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4 sm:px-6 lg:px-8">
             <ParticlesBackground />
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center w-full max-w-6xl mx-auto">
                 <SplitText
                     text="Welcome to My Portfolio"
-                    className="text-7xl font-semibold text-center letter-spacing-10 text-gray-800 dark:text-gray-200 mb-4"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-center letter-spacing-2 sm:letter-spacing-5 lg:letter-spacing-10 text-gray-800 dark:text-gray-200 mb-4 sm:mb-6 lg:mb-8 leading-tight sm:leading-tight md:leading-normal px-2 sm:px-4"
                     delay={200}
                     duration={1}
                     ease="power3.out"
@@ -28,7 +28,7 @@ export default function LoadingScreen() {
                     from={{ opacity: 0, y: 40 }}
                     to={{ opacity: 1, y: 0 }}
                     threshold={0.1}
-                    rootMargin="-100px"
+                    rootMargin="-50px sm:-75px lg:-100px"
                     textAlign="center"
                 />
             </div>

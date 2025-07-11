@@ -1,6 +1,16 @@
 /* filepath: src/index.css */
 @import 'tailwindcss';
 
+@layer base {
+  .font-outline-1 {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+  }
+
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;

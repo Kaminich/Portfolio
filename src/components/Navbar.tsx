@@ -45,13 +45,12 @@ export function Navbar({ isDark }: ThemeButtonProps) {
 
     return (
         <>
-            {/* Desktop Navigation */}
             <nav className="fixed hidden md:block top-4 left-1/2 transform -translate-x-1/2 z-50">
                 <div className={`backdrop-blur-md border rounded-full px-4 md:px-5 lg:px-7 py-2 md:py-2.5 lg:py-3 shadow-lg transition-all duration-800 ${isDark
                     ? 'bg-gray-900/80 border-gray-700/50'
                     : 'bg-white/10 border-white/20'
                     }`}>
-                    <div className="flex items-center justify-center space-x-3 md:space-x-3 lg:space-x-8">
+                    <div className="flex items-center justify-center space-x-3 md:space-x-3 lg:space-x-5 xl:space-x-8">
                         {sections.map(section => (
                             <button
                                 key={section}
@@ -79,7 +78,6 @@ export function Navbar({ isDark }: ThemeButtonProps) {
                 </div>
             </nav>
 
-            {/* Mobile Menu Button */}
             <button
                 onClick={toggleMobileMenu}
                 className={`fixed md:hidden top-2 right-16.5 z-50 backdrop-blur-md border rounded-full p-3 shadow-lg transition-all duration-300 ${isDark
@@ -96,7 +94,6 @@ export function Navbar({ isDark }: ThemeButtonProps) {
                 </div>
             </button>
 
-            {/* Mobile Menu */}
             <div className={`fixed md:hidden top-0 right-0 h-full w-80 z-40 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} ${isDark
                 ? 'bg-gray-900/95 backdrop-blur-md border-l border-gray-700/50'
                 : 'bg-white/95 backdrop-blur-md border-l border-white/20'
@@ -121,7 +118,6 @@ export function Navbar({ isDark }: ThemeButtonProps) {
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
             {isMobileMenuOpen && (
                 <div
                     className="fixed md:hidden inset-0 bg-black/50 z-30"
