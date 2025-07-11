@@ -65,9 +65,9 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
 
     const getFloatingLabelClasses = (fieldName: string, hasValue: boolean): string => {
         const isFloating = focusedField === fieldName || hasValue;
-        return `absolute left-4 transition-all duration-300 pointer-events-none ${isFloating
-            ? 'top-1 text-lg'
-            : 'top-10 text-lg'
+        return `absolute left-3 md:left-2 lg:left-3 transition-all duration-300 ease-in-out pointer-events-none ${isFloating
+            ? 'top-1 text-md'
+            : 'top-10 text-lg md:text-[17px] lg:text-lg'
             } ${isDark ? 'text-gray-400' : 'text-gray-500'}`;
     };
 
@@ -130,7 +130,7 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        className="flex gap-4">
+                        className="flex flex-col md:flex-row gap-4">
                         <div className="relative" style={{ flex: 1.5 }}>
                             <input
                                 id="name"

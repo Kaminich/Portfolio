@@ -74,10 +74,10 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0.3 }}
                             className="flex justify-center">
-                            <div className={`h-2 w-177 ml-29 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
+                            <div className={`h-2 w-89.5 lg:w-130 xl:w-177 ml-29 xl:ml-29 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
                         </motion.div>
 
-                        <div className="flex justify-between items-start w-5xl max-w-5xl mx-auto">
+                        <div className="flex justify-center gap-10 lg:gap-50.5 xl:gap-0 xl:justify-between items-start xl:w-5xl max-w-5xl mx-auto">
 
                             <div className="flex flex-col items-center">
                                 <div className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>

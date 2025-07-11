@@ -41,7 +41,7 @@ function Portfolio() {
       <Navbar isDark={isDark} />
       <ThemeButton isDark={isDark} onToggleDark={toggleDarkMode} />
 
-      <section id="hero" className="h-screen flex items-center justify-center pt-40 px-4 pb-10">
+      <section id="hero" className="h-screen flex items-center justify-center pt-40 px-4 pb-10 relative">
         <Hero isDark={isDark} />
       </section>
 

@@ -6,7 +6,7 @@ import { ZaloIcon } from "../components/ZaloIcon";
 
 export default function Hero({ isDark }: ThemeButtonProps) {
     return (
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center xl:mt-[-60px]">
             <img src="/profile.png" className="w-50 h-50 mx-auto mb-8 rounded-full" alt="KM" />
             <h1
                 className={`text-5xl md:text-7xl font-bold mb-6 transition-colors duration-800 ${isDark ? 'text-white' : 'text-gray-900'
@@ -26,7 +26,7 @@ export default function Hero({ isDark }: ThemeButtonProps) {
                 transition={{ type: "spring", damping: 30, stiffness: 400 }}
                 rotationInterval={5000}
             />
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex gap-4 justify-center mb-8">
                 <a
                     href="https://www.facebook.com/caominh.nguyen.338"
                     className={`group relative flex items-center justify-center w-12 h-12 border-2 rounded-full font-medium transform transition-all duration-300 hover:scale-105 overflow-hidden hover:w-[7.25rem] ${isDark
@@ -94,7 +94,7 @@ export default function Hero({ isDark }: ThemeButtonProps) {
                     </span>
                 </a>
             </div>
-            <div className="mt-16 animate-bounce">
+            <div className="mt-16 animate-bounce absolute right-0 left-0 xl:bottom-5 md:bottom-10">
                 <ChevronDown className={`w-8 h-8 mx-auto ${isDark ? 'text-gray-400' : 'text-gray-400'}`} />
             </div>
         </div>
