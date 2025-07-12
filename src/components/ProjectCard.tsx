@@ -1,7 +1,8 @@
 import { Github, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ProjectType } from "../contents/Project";
 import { ProjectModal } from "./ProjectModal";
+import { motion } from "framer-motion"
 
 interface ProjectCardProps {
     project: ProjectType;
@@ -10,9 +11,80 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [visibleTechs, setVisibleTechs] = useState<string[]>([]);
+    const [hasOverflow, setHasOverflow] = useState<boolean>(false);
 
     const openModal = (): void => setIsModalOpen(true);
     const closeModal = (): void => setIsModalOpen(false);
+
+    const calculateVisibleTechs = (): void => {
+        if (!containerRef.current) return;
+
+        const container = containerRef.current;
+        const containerWidth = container.offsetWidth;
+
+        // Create temporary elements to measure
+        const tempContainer = document.createElement('div');
+        tempContainer.style.cssText = `
+            position: absolute;
+            visibility: hidden;
+            width: ${containerWidth}px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;`;
+
+        document.body.appendChild(tempContainer);
+
+        const tempElements: HTMLSpanElement[] = [];
+        let currentLineHeight: number = 0;
+        let lineCount: number = 0;
+        let lastVisibleIndex: number = -1;
+
+        for (let i = 0; i < project.technologies.length; i++) {
+            const tech = project.technologies[i];
+            const span = document.createElement('span');
+            span.textContent = tech;
+            span.className = `px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full border backdrop-blur-sm transition-colors duration-200 ${isDark
+                ? 'bg-gray-800/60 text-gray-300 border-gray-600/50'
+                : 'bg-gray-100/80 text-gray-700 border-gray-300/50'
+                }`;
+
+            tempContainer.appendChild(span);
+            tempElements.push(span);
+
+            // Check if we've moved to a new line
+            if (span.offsetTop > currentLineHeight) {
+                lineCount++;
+                currentLineHeight = span.offsetTop;
+
+                // If we're on the third line, stop here
+                if (lineCount >= 2) {
+                    break;
+                }
+            }
+
+            lastVisibleIndex = i;
+        }
+
+        document.body.removeChild(tempContainer);
+
+        // Set the visible technologies
+        const visible = project.technologies.slice(0, lastVisibleIndex + 1);
+        setVisibleTechs(visible);
+        setHasOverflow(lastVisibleIndex < project.technologies.length - 1);
+    };
+
+    useEffect(() => {
+        calculateVisibleTechs();
+
+        const handleResize = () => {
+            calculateVisibleTechs();
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [project.technologies]);
 
     return (
         <>
@@ -22,26 +94,48 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                     : 'bg-gradient-to-br from-white to-gray-50 border-gray-200 hover:border-gray-300'
                     }`}
             >
-                <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
+                <motion.div
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    className="relative sm:h-32 md:h-48 overflow-hidden">
                     <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                     />
                     <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-gray-900/30 to-transparent' : 'from-white/10 to-transparent'}`}></div>
-                </div>
+                </motion.div>
 
                 <div className="flex flex-col flex-grow p-4 sm:p-5 md:p-6">
-                    <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 leading-tight line-clamp-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 leading-tight line-clamp-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         {project.title}
-                    </h3>
+                    </motion.h3>
 
-                    <p className={`mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed line-clamp-3 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <motion.p
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        className={`mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed line-clamp-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                         {project.description}
-                    </p>
+                    </motion.p>
 
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
-                        {project.technologies.map((tech, index) => (
+                    <motion.div
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        ref={containerRef}
+                        className="flex flex-wrap gap-1.5 sm:gap-2 mb-4"
+                    >
+                        {visibleTechs.map((tech, index) => (
                             <span
                                 key={index}
                                 className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full border backdrop-blur-sm transition-colors duration-200 ${isDark
@@ -52,9 +146,25 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                                 {tech}
                             </span>
                         ))}
-                    </div>
+                        {hasOverflow && (
+                            <span
+                                className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full border backdrop-blur-sm cursor-pointer transition-colors duration-200 ${isDark
+                                    ? 'bg-blue-800/60 text-blue-300 border-blue-600/50 hover:bg-blue-700/60'
+                                    : 'bg-blue-100/80 text-blue-700 border-blue-300/50 hover:bg-blue-200/80'
+                                    }`}
+                                title={`${project.technologies.length - visibleTechs.length} more technologies`}
+                            >
+                                +{project.technologies.length - visibleTechs.length} more
+                            </span>
+                        )}
+                    </motion.div>
 
-                    <div className="mt-auto flex flex-col sm:flex-row gap-2 sm:gap-3">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        className="mt-auto flex flex-col sm:flex-row gap-2 sm:gap-3">
                         <a
                             href={project.github}
                             target="_blank"
@@ -75,7 +185,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                             <AlertCircle className="w-4 h-4 mr-2" />
                             Detail
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 

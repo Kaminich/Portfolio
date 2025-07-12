@@ -23,8 +23,8 @@ export function Footer({ isDark }: ThemeButtonProps) {
                 }`}
         >
             <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-20 mb-8 sm:mb-12">
-                    <div className="text-center md:text-left space-y-4 sm:space-y-6 lg:col-span-1">
+                <div className="flex max-sm:flex-col md:flex-row max-sm:gap-8 md:flex-wrap lg:justify-center lg:gap-20 mb-8 sm:mb-12">
+                    <div className="text-center md:text-left space-y-4 sm:space-y-6" style={{ flex: 1.4 }}>
                         <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Let's Connect</h3>
                         <p
                             className={`text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}
@@ -32,7 +32,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                             I'm always open to discussing new opportunities, collaborations, and interesting projects.
                         </p>
 
-                        <div className="space-y-3 sm:space-y-4">
+                        <div className="space-y-3 sm:space-y-4 max-sm:flex max-sm:flex-col max-sm:items-start max-sm:ml-[23%]">
                             <div className="flex items-center justify-center md:justify-start group">
                                 <div
                                     className={`p-2 rounded-full mr-3 transition-colors duration-300 ${isDark ? "bg-gray-800 group-hover:bg-gray-700" : "bg-gray-200 group-hover:bg-gray-300"
@@ -71,7 +71,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                         </div>
                     </div>
 
-                    <div className="text-center md:text-left">
+                    <div className="text-center md:text-left" style={{ flex: 1 }}>
                         <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Quick Links</h3>
                         <ul className="space-y-2 sm:space-y-3">
                             {footerLinks.map((link) => (
@@ -88,7 +88,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                         </ul>
                     </div>
 
-                    <div className="text-center md:text-left">
+                    <div className="text-center md:text-left flex-1" style={{ flex: 1.2 }}>
                         <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Connect & Follow</h3>
 
                         <div className="flex justify-center md:justify-start flex-wrap gap-3 sm:gap-4 mb-4 sm:mb-6">

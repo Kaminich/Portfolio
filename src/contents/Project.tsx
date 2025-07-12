@@ -1,6 +1,7 @@
 import { ProjectCard } from "../components/ProjectCard";
 import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
+import logo_F_Dental from "../assets/F-Dental/logo.png"
 import logo_OpalWed from "../assets/OpalWed/logo.png"
 import about_OpalWed from "../assets/OpalWed/about.png";
 import cart_OpalWed from "../assets/OpalWed/cart.png";
@@ -18,6 +19,32 @@ import order_sum_OpalWed from "../assets/OpalWed/order_sum.png";
 import photo_OpalWed from "../assets/OpalWed/photo.png";
 import revenue_OpalWed from "../assets/OpalWed/revenue.png";
 import service_OpalWed from "../assets/OpalWed/service.png";
+import aanc_mail_FI_Arch from "../assets/FI_Arch/aanc_mail.png";
+import aanc_sm_FI_Arch from "../assets/FI_Arch/aanc_sm.png";
+import abr_FI_Arch from "../assets/FI_Arch/abr.png";
+import abr_sm_FI_Arch from "../assets/FI_Arch/abr_sm.png";
+import ac_detail_FI_Arch from "../assets/FI_Arch/ac_detail.png";
+import aucr_FI_Arch from "../assets/FI_Arch/aucr.png";
+import aucr_select_FI_Arch from "../assets/FI_Arch/aucr_select.png";
+import aucr_sm_FI_Arch from "../assets/FI_Arch/aucr_sm.png";
+import cac_FI_Arch from "../assets/FI_Arch/cac.png";
+import cac_select_FI_Arch from "../assets/FI_Arch/cac_select.png";
+import car_FI_Arch from "../assets/FI_Arch/car.png";
+import car_sm_FI_Arch from "../assets/FI_Arch/car_sm.png";
+import cbr_FI_Arch from "../assets/FI_Arch/cbr.png";
+import cbr_sm_FI_Arch from "../assets/FI_Arch/cbr_sm.png";
+import chac_FI_Arch from "../assets/FI_Arch/chac.png";
+import chac_select_FI_Arch from "../assets/FI_Arch/chac_select.png";
+import exb_mail_FI_Arch from "../assets/FI_Arch/exb_mail.png";
+import ibcr_select_FI_Arch from "../assets/FI_Arch/ibcr_select.png";
+import image_FI_Arch from "../assets/FI_Arch/image.png";
+import io_detail_FI_Arch from "../assets/FI_Arch/io_detail.png";
+import mail_FI_Arch from "../assets/FI_Arch/mail.png";
+import menu_FI_Arch from "../assets/FI_Arch/menu.png";
+import pbir_sm_FI_Arch from "../assets/FI_Arch/pbir_sm.png";
+import sm_FI_Arch from "../assets/FI_Arch/sm.png";
+import smi_FI_Arch from "../assets/FI_Arch/smi.png";
+import smi_sm_FI_Arch from "../assets/FI_Arch/smi_sm.png";
 
 export interface ProjectType {
     title: string;
@@ -47,7 +74,7 @@ const projects: ProjectType[] = [
             "Optimized frontend performance for better user experience"
         ],
         technologies: ["HTML/CSS", "React TypeScript", "Java Spring Boot", "PostgreSQL", "JWT", "Render", "Cloudinary", "Gmail"],
-        image: "/projects/f-dental.png",
+        image: logo_F_Dental,
         github: "",
     },
     {
@@ -70,7 +97,7 @@ const projects: ProjectType[] = [
         demoVideo: "https://www.youtube.com/embed/iXHQSND8Rgo"
     },
     {
-        title: "Fi Arch - Assets Under Construction Management",
+        title: "FI Arch - Asset Under Construction Management",
         duration: "Jan 13 - May 06, 2025",
         teamSize: "5 members",
         role: "ABAP Developer",
@@ -82,7 +109,8 @@ const projects: ProjectType[] = [
             "Identified and implemented relevant BAdI and Implicit Enhancements (e.g., in MIGO and FB50) to trigger real-time budget threshold alerts (e.g., 90% asset completion or budget exceedance), with automated email notifications and visual warnings."
         ],
         technologies: ["ABAP", "ALV", "BAPI", "SmartForm", "BAdI", "Implicit Enhancements", "SAP GUI"],
-        image: "/projects/f-dental.png",
+        image: image_FI_Arch,
+        images: [aanc_mail_FI_Arch, aanc_sm_FI_Arch, abr_FI_Arch, abr_sm_FI_Arch, ac_detail_FI_Arch, aucr_FI_Arch, aucr_select_FI_Arch, aucr_sm_FI_Arch, cac_FI_Arch, cac_select_FI_Arch, car_FI_Arch, car_sm_FI_Arch, cbr_FI_Arch, cbr_sm_FI_Arch, chac_FI_Arch, chac_select_FI_Arch, exb_mail_FI_Arch, ibcr_select_FI_Arch, io_detail_FI_Arch, mail_FI_Arch, menu_FI_Arch, pbir_sm_FI_Arch, sm_FI_Arch, smi_FI_Arch, smi_sm_FI_Arch],
         github: "",
         demoVideo: "https://www.youtube.com/embed/5JHkVtwhDTM"
     }
@@ -92,7 +120,7 @@ export default function Project({ isDark }: ThemeButtonProps) {
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-4 xl:gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}

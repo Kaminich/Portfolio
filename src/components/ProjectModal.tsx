@@ -1,6 +1,8 @@
 import { FileText, Play, X, Calendar, Users, User, CheckCircle, ExternalLink, Github, Image } from "lucide-react";
 import { useState, useEffect } from "react";
 import type { ProjectType } from "../contents/Project";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 interface Tab {
     id: string;
@@ -211,28 +213,31 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isO
                                     />
                                 </div>
 
-                                {/* Additional Images */}
-                                {project.images && project.images.length > 0 ? (
-                                    project.images.map((img, index) => (
-                                        <div key={index} className="overflow-hidden rounded-lg shadow-lg">
-                                            <img
-                                                src={img}
-                                                alt={`${project.title} - ${index + 1}`}
-                                                className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                                            />
+                                <PhotoProvider>
+                                    {project.images && project.images.length > 0 ? (
+                                        project.images.map((img, index) => (
+                                            <PhotoView key={index} src={img}>
+                                                <div key={index} className="overflow-hidden rounded-lg shadow-lg">
+                                                    <img
+                                                        src={img}
+                                                        alt={`${project.title} - ${index + 1}`}
+                                                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                                    />
+                                                </div>
+                                            </PhotoView>
+                                        ))
+                                    ) : (
+                                        <div className="md:col-span-2 text-center py-12">
+                                            <Image className={`w-16 h-16 mx-auto mb-4 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
+                                            <p className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                No additional images available
+                                            </p>
+                                            <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+                                                Only the main project image is available for viewing
+                                            </p>
                                         </div>
-                                    ))
-                                ) : (
-                                    <div className="md:col-span-2 text-center py-12">
-                                        <Image className={`w-16 h-16 mx-auto mb-4 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
-                                        <p className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                            No additional images available
-                                        </p>
-                                        <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-                                            Only the main project image is available for viewing
-                                        </p>
-                                    </div>
-                                )}
+                                    )}
+                                </PhotoProvider>
                             </div>
                         </div>
                     )}
