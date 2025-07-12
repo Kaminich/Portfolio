@@ -32,7 +32,7 @@ export function Navbar({ isDark }: ThemeButtonProps) {
     const scrollToSection = (sectionId: SectionId): void => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const y = element.getBoundingClientRect().top + window.scrollY - 85;
+            const y = element.getBoundingClientRect().top + window.scrollY - 50;
             window.scrollTo({ top: y, behavior: 'smooth' });
         }
         // Close mobile menu after clicking a link

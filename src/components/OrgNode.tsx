@@ -17,6 +17,7 @@ export const OrgNode: React.FC<OrgNodeProps> = ({ children, className = "", isRo
             whileInView={slide == 'down-up' ? { opacity: 1, y: 0 } : { opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: false, amount: 0 }}
+            exit={{ opacity: 0 }}
             className={`
                 relative px-6 py-3 rounded-xl border-2 transition-all duration-300 font-medium text-center min-w-30 
                 shadow-lg hover:shadow-xl transform hover:scale-105 ${maxW ? `max-w-${maxW}` : ''} ${isRoot

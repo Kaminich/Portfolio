@@ -53,7 +53,7 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0 }}
           className="max-w-6xl mx-auto">
           <div
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
@@ -68,6 +68,7 @@ function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             viewport={{ once: false, amount: 0 }}
+
             href="/Nguyen-Cao-Minh-CV-SE.pdf"
             download
             className={`flex items-center justify-center w-50 px-8 py-3 ${isDark ? 'bg-gradient-to-r from-gray-800 to-gray-700' : 'bg-gradient-to-r from-gray-600 to-black'} text-white rounded-full font-medium hover:text-white transform transition-all duration-300 hover:scale-105 hover:bg-gray-900/70 shadow-lg z-99`}
@@ -86,7 +87,7 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0 }}
           className="max-w-6xl mx-auto">
           <div
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
@@ -107,7 +108,7 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0 }}
           className="max-w-6xl mx-auto">
           <div
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
@@ -128,7 +129,7 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0 }}
           className="max-w-6xl mx-auto">
           <div
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
@@ -149,7 +150,7 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0 }}
           className="max-w-6xl mx-auto">
           <div
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
@@ -170,7 +171,7 @@ function Portfolio() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0 }}
           className="max-w-6xl mx-auto">
           <div
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'

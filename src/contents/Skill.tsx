@@ -106,7 +106,8 @@ export default function Skill({ isDark }: ThemeButtonProps) {
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
-                                viewport={{ once: false, amount: 0.3 }}
+                                viewport={{ once: false, amount: 0 }}
+                                exit={{ opacity: 0 }}
                                 key={tool.name}
                             >
                                 <div

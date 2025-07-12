@@ -15,7 +15,24 @@ const footerLinks: FooterLink[] = [
 ]
 
 export function Footer({ isDark }: ThemeButtonProps) {
-    const currentYear = new Date().getFullYear()
+    const currentYear = new Date().getFullYear();
+
+    const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string): void => {
+        e.preventDefault()
+
+        const targetId = href.replace('#', '')
+        const targetElement = document.getElementById(targetId)
+
+        if (targetElement) {
+            const elementPosition = targetElement.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - 50
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    }
 
     return (
         <footer
@@ -78,6 +95,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
+                                        onClick={(e) => handleSmoothScroll(e, link.href)}
                                         className={`inline-block py-1 px-2 rounded-md transition-all duration-300 text-sm sm:text-base ${isDark ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"
                                             }`}
                                     >

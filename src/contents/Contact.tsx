@@ -79,7 +79,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }}
                     className={`text-3xl font-bold mb-6 transition-colors duration-300 ${isDark ? 'text-gray-100' : 'text-gray-900'
                         }`}>
                     Let's get in touch!
@@ -88,7 +89,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }}
                     className={`mb-4 text-lg leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
                         }`}>
                     I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
@@ -97,7 +99,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: false, amount: 0.3 }} className={`mb-6 text-lg leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }} className={`mb-6 text-lg leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
                         }`}>
                     Feel free to reach out via email or connect with me on GitHub.
                 </motion.p>
@@ -106,7 +109,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }}
                     className="space-y-3">
                     <div className="flex items-center gap-3">
                         <span className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
@@ -129,7 +133,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className="flex flex-col md:flex-row gap-4">
                         <div className="relative" style={{ flex: 1.5 }}>
                             <input
@@ -181,7 +186,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className="relative">
                         <input
                             id="email"
@@ -209,7 +215,8 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className="relative">
                         <textarea
                             id="message"
@@ -238,6 +245,7 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
                         viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         type="submit"
                         disabled={isSubmitting}
                         onClick={handleSubmit}

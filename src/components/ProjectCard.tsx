@@ -98,7 +98,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                     initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }}
                     className="relative sm:h-32 md:h-48 overflow-hidden">
                     <img
                         src={project.image}
@@ -113,7 +114,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                         initial={{ opacity: 0, y: 25 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className={`text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 leading-tight line-clamp-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         {project.title}
                     </motion.h3>
@@ -122,7 +124,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                         initial={{ opacity: 0, y: 25 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className={`mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed line-clamp-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                         {project.description}
                     </motion.p>
@@ -131,7 +134,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                         initial={{ opacity: 0, y: 25 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         ref={containerRef}
                         className="flex flex-wrap gap-1.5 sm:gap-2 mb-4"
                     >
@@ -163,7 +167,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className="mt-auto flex flex-col sm:flex-row gap-2 sm:gap-3">
                         <a
                             href={project.github}

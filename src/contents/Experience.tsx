@@ -8,7 +8,8 @@ export default function Experience({ isDark }: ThemeButtonProps) {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0 }}
+            exit={{ opacity: 0 }}
             className="px-4 sm:px-6 md:px-8">
             <div className="relative max-w-6xl mx-auto">
                 <div className={`absolute left-28 sm:left-32 md:left-36 top-0 w-0.5 h-full ${isDark ? 'bg-gray-700' : 'bg-gray-300'} hidden sm:block`} />

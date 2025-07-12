@@ -9,7 +9,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }}
                     className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
                 >
                     <div
@@ -88,7 +89,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className={`${isDark ? "text-white" : "text-gray-800"} leading-relaxed mb-4 sm:mb-6`}
                     >
                         I am a fresher in React and Java, with a specialization in SAP ABAP. I am a highly motivated and curious
@@ -99,7 +101,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className={`${isDark ? "text-white" : "text-gray-800"} leading-relaxed`}
                     >
                         My long-term objective is to become a senior software engineer who can contribute to impactful projects
@@ -113,7 +116,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0 }}
+                            exit={{ opacity: 0 }}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Name
@@ -127,7 +131,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0 }}
+                            exit={{ opacity: 0 }}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Phone
@@ -141,7 +146,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0 }}
+                            exit={{ opacity: 0 }}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Email
@@ -155,7 +161,8 @@ export default function About({ isDark }: ThemeButtonProps) {
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0 }}
+                            exit={{ opacity: 0 }}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Location

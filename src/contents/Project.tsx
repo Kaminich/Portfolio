@@ -129,7 +129,8 @@ export default function Project({ isDark }: ThemeButtonProps) {
                                 duration: 0.8,
                                 delay: index * 0.2
                             }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0 }}
+                            exit={{ opacity: 0 }}
                             key={index}
                             className="w-full">
                             <ProjectCard project={project} isDark={isDark} />

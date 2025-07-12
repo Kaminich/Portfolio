@@ -62,7 +62,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
                         className="flex justify-center">
                         <div className={`h-12 border-1  ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
                     </motion.div>
@@ -72,7 +73,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
-                            viewport={{ once: false, amount: 0.3 }}
+                            viewport={{ once: false, amount: 0 }}
+                            exit={{ opacity: 0 }}
                             className="flex justify-center">
                             <div className={`h-2 w-89.5 lg:w-130 xl:w-177 ml-29 xl:ml-29 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
                         </motion.div>
@@ -90,7 +92,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
-                                    viewport={{ once: false, amount: 0.3 }}
+                                    viewport={{ once: false, amount: 0 }}
+                                    exit={{ opacity: 0 }}
                                     className={`h-6 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
 
                                 <div className="relative">
@@ -98,7 +101,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                         initial={{ opacity: 0, y: 50 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.8 }}
-                                        viewport={{ once: false, amount: 0.3 }}
+                                        viewport={{ once: false, amount: 0 }}
+                                        exit={{ opacity: 0 }}
                                         className="flex justify-center">
                                         <div className={`h-2 w-67 mr-2.5 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
                                     </motion.div>
@@ -110,7 +114,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                 initial={{ opacity: 0, y: 50 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.8 }}
-                                                viewport={{ once: false, amount: 0.3 }}
+                                                viewport={{ once: false, amount: 0 }}
+                                                exit={{ opacity: 0 }}
                                                 className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
 
                                             <OrgNode isDark={isDark} slide='down-up'>
@@ -122,7 +127,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                     initial={{ opacity: 0, y: 50 }}
                                                     whileInView={{ opacity: 1, y: 0 }}
                                                     transition={{ duration: 0.8 }}
-                                                    viewport={{ once: false, amount: 0.3 }}
+                                                    viewport={{ once: false, amount: 0 }}
+                                                    exit={{ opacity: 0 }}
                                                     className={`h-6 border-1 last:mb-0 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
                                                 <div className='relative w-39 flex flex-col items-center'>
                                                     {skills.technical.languages.map((lang, index) => (
@@ -144,7 +150,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                 initial={{ opacity: 0, y: 50 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.8 }}
-                                                viewport={{ once: false, amount: 0.3 }}
+                                                viewport={{ once: false, amount: 0 }}
+                                                exit={{ opacity: 0 }}
                                                 className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
 
                                             <OrgNode isDark={isDark} slide='down-up'>
@@ -156,7 +163,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                     initial={{ opacity: 0, y: 50 }}
                                                     whileInView={{ opacity: 1, y: 0 }}
                                                     transition={{ duration: 0.8 }}
-                                                    viewport={{ once: false, amount: 0.3 }}
+                                                    viewport={{ once: false, amount: 0 }}
+                                                    exit={{ opacity: 0 }}
                                                     className={`h-6 border-1 last:mb-0 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
                                                 <div className='relative w-44 flex flex-col items-center'>
                                                     {skills.technical.frameworks.map((framework, index) => (
@@ -181,7 +189,8 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.8 }}
-                                    viewport={{ once: false, amount: 0.3 }}
+                                    viewport={{ once: false, amount: 0 }}
+                                    exit={{ opacity: 0 }}
                                     className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
 
                                 <OrgNode isDark={isDark} slide='down-up'>
