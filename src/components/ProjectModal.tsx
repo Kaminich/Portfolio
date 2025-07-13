@@ -21,6 +21,8 @@ interface ProjectModalProps {
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isOpen, onClose }) => {
     const [activeTab, setActiveTab] = useState<TabId>('overview');
+    const [isAnimating, setIsAnimating] = useState<boolean>(false);
+    const [shouldRender, setShouldRender] = useState<boolean>(false);
 
     const tabs: Tab[] = [
         { id: 'overview', label: 'Overview', icon: <FileText className="w-4 h-4" /> },
@@ -28,8 +30,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isO
         { id: 'demo', label: 'Demo Video', icon: <Play className="w-4 h-4" /> }
     ];
 
+    const handleEscapse = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            onClose();
+        }
+    };
+
     useEffect(() => {
         if (isOpen) {
+            setShouldRender(true);
             const scrollY = window.scrollY;
 
             document.body.style.position = 'fixed';
@@ -37,27 +46,57 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isO
             document.body.style.width = '100%';
             document.body.style.overflow = 'hidden';
 
+            document.addEventListener('keydown', handleEscapse);
+
+            setTimeout(() => {
+                setIsAnimating(true);
+            }, 10);
+
             return () => {
                 document.body.style.position = '';
                 document.body.style.top = '';
                 document.body.style.width = '';
                 document.body.style.overflow = '';
-
                 window.scrollTo(0, scrollY);
+
+                document.removeEventListener('keydown', handleEscapse);
             };
+        } else {
+            setIsAnimating(false);
+
+            const timer = setTimeout(() => {
+                setShouldRender(false);
+            }, 200);
+
+            return () => clearTimeout(timer);
         }
     }, [isOpen]);
 
-    if (!isOpen) return null;
+    const handleClose = () => {
+        setIsAnimating(false);
+        setTimeout(() => {
+            onClose();
+        }, 10);
+    };
+
+    const handleBackdropClick = (e: React.MouseEvent) => {
+        if (e.target === e.currentTarget) {
+            handleClose();
+        }
+    };
+
+    if (!shouldRender) return null;
 
     return (
         <div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
-            onClick={onClose}
+            onClick={handleBackdropClick}
         >
             <div
-                className={`w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl transition-all transform overflow-hidden ${isDark ? 'bg-gray-900' : 'bg-white'
-                    }`}
+                className={`w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl transition-all duration-300 ease-out transform overflow-hidden ${isAnimating
+                    ? 'opacity-100 scale-100 translate-y-0'
+                    : 'opacity-0 scale-95 translate-y-4'
+                    } ${isDark ? 'bg-gray-900' : 'bg-white'}`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className={`flex items-center justify-between p-6 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'
@@ -150,7 +189,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isO
 
                                 {/* Description */}
                                 <div>
-                                    <h3 className={`text-xl font-semibold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                                    <h3 className={`tex</li>t-xl font-semibold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                                         Description
                                     </h3>
                                     <p className={`text-base leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -221,7 +260,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isO
                                                     <img
                                                         src={img}
                                                         alt={`${project.title} - ${index + 1}`}
-                                                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                                        className="w-full h-48 object-cover hover:scale-10</div>5 transition-transform duration-300 cursor-pointer"
                                                     />
                                                 </div>
                                             </PhotoView>
