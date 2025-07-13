@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Toast } from '../components/Toast';
@@ -36,7 +36,6 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
     const showToast = (message: string, type: 'success' | 'error') => {
         setToast({ message, type, isVisible: true });
 
-        // Auto-hide toast after 4 seconds
         setTimeout(() => {
             setToast(prev => ({ ...prev, isVisible: false }));
         }, 4000);
@@ -115,41 +114,78 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                 <div className={`flex-1 p-8 rounded-2xl transition-all duration-300 ${isDark ? 'text-gray-100' : 'text-gray-900'
                     }`}>
                     <motion.h2
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                        whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0 }}
                         exit={{ opacity: 0 }}
+                        style={{
+                            "--slide-x1": "-50",
+                            "--slide-x2": "0",
+                            "--slide-y1": "0",
+                            "--slide-y2": "0",
+                            ...(window.innerWidth < 640
+                                ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                : {})
+                        } as React.CSSProperties}
                         className={`text-3xl font-bold mb-6 transition-colors duration-300 ${isDark ? 'text-gray-100' : 'text-gray-900'
                             }`}>
                         Let's get in touch!
                     </motion.h2>
                     <motion.p
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                        whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0 }}
                         exit={{ opacity: 0 }}
+                        style={{
+                            "--slide-x1": "-50",
+                            "--slide-x2": "0",
+                            "--slide-y1": "0",
+                            "--slide-y2": "0",
+                            ...(window.innerWidth < 640
+                                ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                : {})
+                        } as React.CSSProperties}
                         className={`mb-4 text-lg leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
                             }`}>
                         I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
                     </motion.p>
                     <motion.p
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                        whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0 }}
-                        exit={{ opacity: 0 }} className={`mb-6 text-lg leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
+                        exit={{ opacity: 0 }}
+                        style={{
+                            "--slide-x1": "-50",
+                            "--slide-x2": "0",
+                            "--slide-y1": "0",
+                            "--slide-y2": "0",
+                            ...(window.innerWidth < 640
+                                ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                : {})
+                        } as React.CSSProperties}
+                        className={`mb-6 text-lg leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
                             }`}>
                         Feel free to reach out via email or connect with me on GitHub.
                     </motion.p>
 
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                        whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0 }}
                         exit={{ opacity: 0 }}
+                        style={{
+                            "--slide-x1": "-50",
+                            "--slide-x2": "0",
+                            "--slide-y1": "0",
+                            "--slide-y2": "0",
+                            ...(window.innerWidth < 640
+                                ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                : {})
+                        } as React.CSSProperties}
                         className="space-y-3">
                         <div className="flex items-center gap-3">
                             <span className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'
@@ -169,11 +205,20 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                 <div className="p-8" style={{ flex: 1.7 }}>
                     <div className="flex flex-col space-y-8">
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                             className="flex flex-col md:flex-row gap-4">
                             <div className="relative" style={{ flex: 1.5 }}>
                                 <input
@@ -222,11 +267,20 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                             className="relative">
                             <input
                                 id="email"
@@ -251,11 +305,20 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                             className="relative">
                             <textarea
                                 id="message"
@@ -310,4 +373,4 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
     );
 };
 
-export default Contact;
+export default memo(Contact);

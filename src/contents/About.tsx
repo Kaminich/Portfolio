@@ -1,7 +1,9 @@
 import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
+import { memo } from "react";
 
-export default function About({ isDark }: ThemeButtonProps) {
+function About({ isDark }: ThemeButtonProps) {
+
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="mb-8 sm:mb-16">
@@ -86,24 +88,42 @@ export default function About({ isDark }: ThemeButtonProps) {
                     className={`flex-1 lg:max-w-3xl font-semibold text-lg sm:text-xl lg:text-2xl ${isDark ? "text-white" : "text-gray-900"}`}
                 >
                     <motion.p
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                        whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0 }}
                         exit={{ opacity: 0 }}
                         className={`${isDark ? "text-white" : "text-gray-800"} leading-relaxed mb-4 sm:mb-6`}
+                        style={{
+                            "--slide-x1": "-50",
+                            "--slide-x2": "0",
+                            "--slide-y1": "0",
+                            "--slide-y2": "0",
+                            ...(window.innerWidth < 640
+                                ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                : {})
+                        } as React.CSSProperties}
                     >
                         I am a fresher in React and Java, with a specialization in SAP ABAP. I am a highly motivated and curious
                         individual who wants to learn and grow. I take my work seriously, always striving to give my best in every
                         task, and I embrace challenges as opportunities to improve.
                     </motion.p>
                     <motion.p
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                        whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: false, amount: 0 }}
                         exit={{ opacity: 0 }}
-                        className={`${isDark ? "text-white" : "text-gray-800"} leading-relaxed`}
+                        className={`${isDark ? "text-white" : "text-gray-800"} leading-relaxed mb-4 sm:mb-6`}
+                        style={{
+                            "--slide-x1": "-50",
+                            "--slide-x2": "0",
+                            "--slide-y1": "0",
+                            "--slide-y2": "0",
+                            ...(window.innerWidth < 640
+                                ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                : {})
+                        } as React.CSSProperties}
                     >
                         My long-term objective is to become a senior software engineer who can contribute to impactful projects
                         across different technologies.
@@ -113,11 +133,20 @@ export default function About({ isDark }: ThemeButtonProps) {
                 <div className="w-full lg:w-auto lg:min-w-[280px]">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Name
@@ -128,11 +157,20 @@ export default function About({ isDark }: ThemeButtonProps) {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Phone
@@ -143,11 +181,20 @@ export default function About({ isDark }: ThemeButtonProps) {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Email
@@ -158,11 +205,20 @@ export default function About({ isDark }: ThemeButtonProps) {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: "var(--slide-x1)", y: "var(--slide-y1)" }}
+                            whileInView={{ opacity: 1, x: "var(--slide-x2)", y: "var(--slide-y2)" }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
+                            style={{
+                                "--slide-x1": "50",
+                                "--slide-x2": "0",
+                                "--slide-y1": "0",
+                                "--slide-y2": "0",
+                                ...(window.innerWidth < 640
+                                    ? { "--slide-x1": "0", "--slide-x2": "0", "--slide-y1": "50", "--slide-y2": "0" }
+                                    : {})
+                            } as React.CSSProperties}
                         >
                             <label className={`${isDark ? "text-white" : "text-gray-900"} font-bold mb-2 block text-sm sm:text-base`}>
                                 Location
@@ -177,3 +233,5 @@ export default function About({ isDark }: ThemeButtonProps) {
         </div>
     )
 }
+
+export default memo(About);

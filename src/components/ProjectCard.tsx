@@ -89,10 +89,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
     return (
         <>
             <div
-                className={`h-full flex flex-col justify-between rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-2xl border transition-all duration-300 hover:transform hover:scale-[1.02] sm:hover:scale-105 hover:shadow-xl ${isDark
+                className={`h-full flex flex-col justify-between rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-2xl border transition-all duration-300 hover:transform hover:scale-[1.02] sm:hover:scale-105 hover:shadow-xl cursor-pointer ${isDark
                     ? 'bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 hover:border-gray-600'
                     : 'bg-gradient-to-br from-white to-gray-50 border-gray-200 hover:border-gray-300'
                     }`}
+                onClick={openModal}
             >
                 <motion.div
                     initial={{ opacity: 0, y: 25 }}

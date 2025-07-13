@@ -45,6 +45,7 @@ import pbir_sm_FI_Arch from "../assets/FI_Arch/pbir_sm.png";
 import sm_FI_Arch from "../assets/FI_Arch/sm.png";
 import smi_FI_Arch from "../assets/FI_Arch/smi.png";
 import smi_sm_FI_Arch from "../assets/FI_Arch/smi_sm.png";
+import { memo } from "react";
 
 export interface ProjectType {
     title: string;
@@ -116,7 +117,7 @@ const projects: ProjectType[] = [
     }
 ];
 
-export default function Project({ isDark }: ThemeButtonProps) {
+function Project({ isDark }: ThemeButtonProps) {
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
@@ -141,3 +142,5 @@ export default function Project({ isDark }: ThemeButtonProps) {
         </div>
     )
 }
+
+export default memo(Project);

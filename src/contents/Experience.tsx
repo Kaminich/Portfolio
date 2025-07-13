@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { ExperienceCard } from "../components/ExperienceCard";
 import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
 
-export default function Experience({ isDark }: ThemeButtonProps) {
+function Experience({ isDark }: ThemeButtonProps) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -72,3 +73,5 @@ export default function Experience({ isDark }: ThemeButtonProps) {
         </motion.div>
     );
 }
+
+export default memo(Experience);

@@ -3,8 +3,9 @@ import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
 import type { ThemeButtonProps } from "../components/ThemeButton";
 import { TypingAnimation } from "../components/TypingAnimation";
 import { ZaloIcon } from "../components/ZaloIcon";
+import { memo } from "react";
 
-export default function Hero({ isDark }: ThemeButtonProps) {
+function Hero({ isDark }: ThemeButtonProps) {
     return (
         <div className="max-w-4xl mx-auto text-center xl:mt-[-60px]">
             <img src="/profile.png" className="w-50 h-50 mx-auto mb-8 rounded-full" alt="KM" />
@@ -114,3 +115,5 @@ export default function Hero({ isDark }: ThemeButtonProps) {
         </div>
     );
 }
+
+export default memo(Hero);

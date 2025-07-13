@@ -1,6 +1,7 @@
 import type { ThemeButtonProps } from "../components/ThemeButton"
 import { motion } from "framer-motion"
 import SkillsOrgChart, { skills } from "../components/SkillOrgChart.js"
+import { memo } from "react"
 
 const favouriteTools = [
     { name: "Visual Studio Code", image: "/vscode.png" },
@@ -19,7 +20,7 @@ const favouriteTools = [
     { name: "Google Docs", image: "/doc.png" },
 ]
 
-export default function Skill({ isDark }: ThemeButtonProps) {
+function Skill({ isDark }: ThemeButtonProps) {
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className={`transition-colors duration-800 flex flex-col align-start gap-5 sm:gap-8`}>
@@ -149,3 +150,5 @@ export default function Skill({ isDark }: ThemeButtonProps) {
         </div>
     )
 }
+
+export default memo(Skill);

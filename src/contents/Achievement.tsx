@@ -1,6 +1,7 @@
 import { Trophy } from "lucide-react";
 import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
+import { memo } from "react";
 
 const achievements: string[] = [
     "FPT University Honorable Student - Spring 2025",
@@ -8,7 +9,7 @@ const achievements: string[] = [
     "IBSTPI Certificate 2023"
 ];
 
-export default function Achievement({ isDark }: ThemeButtonProps) {
+function Achievement({ isDark }: ThemeButtonProps) {
     return (
         <>
             <div
@@ -48,3 +49,5 @@ export default function Achievement({ isDark }: ThemeButtonProps) {
         </>
     )
 }
+
+export default memo(Achievement)

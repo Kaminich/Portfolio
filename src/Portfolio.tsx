@@ -1,4 +1,4 @@
-import { Code, BookOpen, User, Briefcase, Award, Download, MessageCircle } from 'lucide-react';
+import { User, Briefcase, Award, Download, MessageCircle, FolderOpen, Star } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { useEffect, useState } from 'react';
@@ -114,7 +114,7 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <Code className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <FolderOpen className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
             <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Featured Projects</h2>
           </div>
           <Project isDark={isDark} />
@@ -135,7 +135,7 @@ function Portfolio() {
             className={`flex items-center mb-12 px-6 py-4 rounded-full shadow-lg w-max transition-colors duration-300 ${isDark ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white' : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 text-gray-800'
               }`}
           >
-            <BookOpen className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
+            <Star className={`w-6 h-6 mr-4 ${isDark ? 'text-white' : 'text-gray-600'}`} />
             <h2 className={`text-md font-bold ${isDark ? 'text-white' : 'text-gray-600'}`}>Skills & Technologies</h2>
           </div>
           <Skill isDark={isDark} />

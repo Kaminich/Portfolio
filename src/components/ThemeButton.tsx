@@ -11,7 +11,7 @@ const ThemeButton: React.FC<ThemeButtonProps> = ({ isDark, onToggleDark }) => {
     return (
         <button
             onClick={onToggleDark}
-            className={`fixed top-2 right-4 md:right-2 p-2 rounded-full transition-all duration-800 cursor-pointer z-50 ${isDark
+            className={`fixed top-5 md:top-2 right-1 md:right-2 p-2 rounded-full transition-all duration-800 cursor-pointer z-50 ${isDark
                 ? 'bg-gray-900/80 backdrop-blur-md border border-gray-700/50 rounded-full p-3 shadow-lg text-white hover:bg-white/10'
                 : 'bg-yellow-500 backdrop-blur-md border border-white/20 rounded-full p-3 shadow-lg text-white hover:bg-yellow-500/80'
                 }`}
