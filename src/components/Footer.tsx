@@ -9,9 +9,10 @@ interface FooterLink {
 
 const footerLinks: FooterLink[] = [
     { name: "About Me", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
+    { name: "Features Projects", href: "#projects" },
+    { name: "Skills & Technologies", href: "#skills" },
+    { name: "Achievements", href: "#achievements" },
 ]
 
 export function Footer({ isDark }: ThemeButtonProps) {
@@ -36,7 +37,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
 
     return (
         <footer
-            className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${isDark ? "bg-gray-900 text-white border-t border-gray-800" : "bg-gray-50 text-gray-900 border-t border-gray-200"
+            className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 z-50 transition-all duration-300 bg-linear-to-br ${isDark ? 'from-black via-gray-700 to-gray-900' : 'from-gray-50 via-blue-50 to-purple-50 text-gray-900 border-t border-gray-200'
                 }`}
         >
             <div className="max-w-6xl mx-auto">
@@ -219,9 +220,8 @@ export function Footer({ isDark }: ThemeButtonProps) {
                     </div>
                 </div>
 
-                {/* Footer Bottom */}
                 <div
-                    className={`border-t pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 ${isDark ? "border-gray-700" : "border-gray-200"}`}
+                    className={`border-t pt-6 sm:pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-4 ${isDark ? "border-gray-700" : "border-gray-200"}`}
                 >
                     <p className={`text-xs sm:text-sm text-center md:text-left ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         © {currentYear} Cao Minh Nguyen. All rights reserved.

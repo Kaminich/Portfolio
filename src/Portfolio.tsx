@@ -35,19 +35,19 @@ function Portfolio() {
 
   return (
     <div
-      className={`min-h-screen bg-linear-to-br from-gray-50 via-blue-50 to-purple-50 relative transition-all duration-300 ${isDark ? 'from-gray-900 via-gray-800 to-black' : 'bg-white/10 border border-white/20'
+      className={`min-h-screen bg-linear-to-br relative transition-all duration-300 ${isDark ? 'from-black via-gray-700 to-gray-900' : 'from-gray-50 via-blue-50 to-purple-50 border border-white/20'
         }`}
     >
       <Navbar isDark={isDark} />
       <ThemeButton isDark={isDark} onToggleDark={toggleDarkMode} />
 
-      <section id="hero" className="h-screen flex items-center justify-center pt-40 px-4 pb-10 relative">
+      <section id="hero" className={`xl:h-screen pt-25 px-6 pb-10 relative border-b ${isDark ? 'border-gray-700/50 shadow-[0_8px_32px_rgba(255,255,255,0.1)]' : 'border-gray-200/60 shadow-[0_8px_12px_rgba(0,0,0,0.15)]'}`}>
         <Hero isDark={isDark} />
       </section>
 
       <section
         id="about"
-        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-gray-800' : 'bg-white'}`}
+        className={`py-10 px-4 transition-colors duration-500 border-b relative ${isDark ? 'bg-black/30 border-gray-700/50 shadow-[0_8px_32px_rgba(255,255,255,0.1)]' : 'bg-white border-gray-200/60 shadow-[0_8px_12px_rgba(0,0,0,0.15)]'}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -71,7 +71,7 @@ function Portfolio() {
 
             href="/Nguyen-Cao-Minh-CV-SE.pdf"
             download
-            className={`flex items-center justify-center w-50 px-8 py-3 ${isDark ? 'bg-gradient-to-r from-gray-800 to-gray-700' : 'bg-gradient-to-r from-gray-600 to-black'} text-white rounded-full font-medium hover:text-white transform transition-all duration-300 hover:scale-105 hover:bg-gray-900/70 shadow-lg z-99`}
+            className={`flex items-center justify-center w-50 px-8 py-3 ${isDark ? 'bg-gradient-to-r from-gray-800 to-gray-700' : 'bg-gradient-to-r from-gray-600 to-black'} text-white rounded-full font-medium hover:text-white transform transition-all duration-300 hover:scale-105 hover:bg-black/30/70 shadow-lg z-99`}
           >
             <Download className="w-5 h-5 mr-2" />
             Download CV
@@ -81,7 +81,7 @@ function Portfolio() {
 
       <section
         id="experience"
-        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}
+        className={`py-10 px-4 transition-colors duration-500 border-b relative ${isDark ? 'bg-black/30 border-gray-700/50 shadow-[0_8px_32px_rgba(255,255,255,0.1)]' : 'bg-gray-50 border-gray-200/60 shadow-[0_8px_12px_rgba(0,0,0,0.15)]'}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -102,7 +102,7 @@ function Portfolio() {
 
       <section
         id="projects"
-        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-gray-800' : 'bg-white'}`}
+        className={`py-10 px-4 transition-colors duration-500 border-b relative ${isDark ? 'bg-black/30 border-gray-700/50 shadow-[0_8px_32px_rgba(255,255,255,0.1)]' : 'bg-white border-gray-200/80 shadow-[0_0_12px_rgba(0,0,0,0.15)]'}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -123,7 +123,7 @@ function Portfolio() {
 
       <section
         id="skills"
-        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}
+        className={`py-10 px-4 transition-colors duration-500 border-b relative ${isDark ? 'bg-black/30 border-gray-700/50 shadow-[0_8px_32px_rgba(255,255,255,0.1)]' : 'bg-gray-50 border-gray-200/60 shadow-[0_2px_12px_rgba(0,0,0,0.15)]'}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -144,7 +144,7 @@ function Portfolio() {
 
       <section
         id="achievements"
-        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-gray-800' : 'bg-white'}`}
+        className={`py-10 px-4 transition-colors duration-500 border-b relative ${isDark ? 'bg-black/30 border-gray-700/50 shadow-[0_8px_32px_rgba(255,255,255,0.1)]' : 'bg-white border-gray-200/60 shadow-[0_0_10px_rgba(0,0,0,0.15)]'}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -165,7 +165,7 @@ function Portfolio() {
 
       <section
         id="contact"
-        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-gray-800' : 'bg-white'}`}
+        className={`py-10 px-4 transition-colors duration-500 ${isDark ? 'bg-black/30' : 'bg-white'}`}
       >
         <motion.div
           initial={{ opacity: 0, y: 50 }}

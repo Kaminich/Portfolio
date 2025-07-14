@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ParticlesBackground } from "./components/ParticalBackground.tsx";
 import SplitText from "./components/SplitText.tsx";
 import Portfolio from "./Portfolio.tsx";
 
@@ -15,8 +14,7 @@ export default function LoadingScreen() {
     }, []);
 
     return isReady ? <Portfolio /> : (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 px-4 sm:px-6 lg:px-8">
-            <ParticlesBackground />
+        <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-black via-gray-700 to-gray-900 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center w-full max-w-6xl mx-auto">
                 <SplitText
                     text="Welcome to My Portfolio"
