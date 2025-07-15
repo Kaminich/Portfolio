@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "../hooks/useTheme";
 
 interface TypingAnimationProps {
     text: string;
@@ -8,6 +9,7 @@ interface TypingAnimationProps {
 export const TypingAnimation: React.FC<TypingAnimationProps> = ({ text, speed = 100 }) => {
     const [displayText, setDisplayText] = useState<string>('');
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const { isDark } = useTheme();
 
     useEffect(() => {
         if (currentIndex < text.length) {
@@ -22,7 +24,7 @@ export const TypingAnimation: React.FC<TypingAnimationProps> = ({ text, speed = 
     return (
         <span className="text-type">
             {displayText}
-            {currentIndex < text.length && <span className="animate-pulse">|</span>}
+            {currentIndex < text.length && <span className={`${isDark ? 'text-white' : 'text-black'} animate-pulse`}>|</span>}
         </span>
     );
 };

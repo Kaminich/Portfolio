@@ -15,7 +15,7 @@ function Hero() {
 
                     <div className="max-sm:hidden flex-1 xl:flex-2 text-left max-lg:flex max-lg:flex-col max-lg:items-start max-lg:w-full xl:mt-5">
                         <h1
-                            className={`text-3xl sm:text-4xl md:text-6xl lg:text-[80px] xl:text-[70px] font-bold mb-4 md:mb-6 transition-colors duration-800 tracking-wide leading-tight md:min-h-[155px] lg:min-h-[188px] xl:min-h-[186px] bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent animate-pulse ${isDark ? 'hover:from-blue-400 hover:via-purple-400 hover:to-cyan-400' : 'hover:from-blue-700 hover:via-purple-700 hover:to-cyan-600'}`}
+                            className={`text-3xl sm:text-4xl md:text-6xl lg:text-[80px] xl:text-[70px] font-bold mb-4 md:mb-6 transition-colors duration-800 tracking-wide leading-tight md:min-h-[155px] lg:min-h-[188px] xl:min-h-[186px] bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent ${isDark ? 'hover:from-blue-400 hover:via-purple-400 hover:to-cyan-400' : 'hover:from-blue-700 hover:via-purple-700 hover:to-cyan-600'}`}
                         >
                             <TypingAnimation text="Hi, I'm Nguyen Cao Minh" speed={150} />
                         </h1>
