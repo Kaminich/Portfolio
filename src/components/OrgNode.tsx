@@ -20,13 +20,13 @@ export const OrgNode: React.FC<OrgNodeProps> = ({ children, className = "", isRo
             exit={{ opacity: 0 }}
             className={`
                 relative px-6 py-3 rounded-xl border-2 transition-all duration-300 font-medium text-center min-w-30 
-                shadow-lg hover:shadow-xl transform hover:scale-105 ${maxW ? `max-w-${maxW}` : ''} ${isRoot
+                shadow-lg hover:shadow-xl transform hover:scale-105 z-50 ${maxW ? `max-w-${maxW}` : ''} ${isRoot
                     ? isDark
-                        ? 'border-purple-500 text-white bg-gradient-to-r from-purple-600 to-blue-600'
-                        : 'border-purple-400 text-white bg-gradient-to-r from-purple-500 to-blue-500'
+                        ? 'bg-gradient-to-br from-gray-900 to-gray-800 text-white hover:border-white'
+                        : 'bg-gradient-to-br from-white to-gray-50 text-gray-800 hover:border-black'
                     : isDark
-                        ? 'border-gray-600 text-white bg-gray-800 hover:border-gray-700'
-                        : 'border-gray-300 text-gray-800 bg-white hover:border-gray-400'
+                        ? 'bg-gradient-to-br from-gray-900 to-gray-800 text-white hover:border-white'
+                        : 'bg-gradient-to-br from-white to-gray-50 text-gray-800 hover:border-black'
                 } ${className}
             `}>
             {children}

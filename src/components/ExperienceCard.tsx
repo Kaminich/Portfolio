@@ -26,7 +26,7 @@ export function ExperienceCard({ title, date, isDark, children }: ExperienceCard
                         : {})
                 } as React.CSSProperties}
                 className="flex-shrink-0 w-full sm:w-24 md:w-32 sm:text-right mb-2 sm:mb-0">
-                <span className={`font-medium text-sm sm:text-base ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
+                <span className={`font-medium text-sm sm:text-base bg-gradient-to-br ${isDark ? 'from-[#EA4492] to-[#004E9A]' : 'from-[#1CA7EC] to-[#4ADEDE]'} bg-clip-text text-transparent`}>
                     {date}
                 </span>
             </motion.div>
@@ -47,7 +47,7 @@ export function ExperienceCard({ title, date, isDark, children }: ExperienceCard
                         : {})
                 } as React.CSSProperties}
                 className="relative flex-shrink-0 mt-1 hidden sm:block">
-                <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full ml-[-8.5px] border-3 sm:border-4 ${isDark ? 'bg-blue-400 border-gray-900' : 'bg-blue-500 border-white'} shadow-lg`} />
+                <div className={`w-4 h-4 rounded-full ml-[-6px] border-2 bg-gradient-to-br ${isDark ? 'from-[#EA4492] to-[#004E9A]' : 'from-[#1CA7EC] to-[#4ADEDE]'} shadow-lg`} />
             </motion.div>
 
             <motion.div

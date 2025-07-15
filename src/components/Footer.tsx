@@ -1,6 +1,6 @@
 import { Github, Mail, MapPin, Calendar, Heart, Linkedin, Download, Facebook } from "lucide-react"
-import type { ThemeButtonProps } from "./ThemeButton"
 import { ZaloIcon } from "./ZaloIcon"
+import { useTheme } from "../hooks/useTheme"
 
 interface FooterLink {
     name: string
@@ -15,8 +15,9 @@ const footerLinks: FooterLink[] = [
     { name: "Achievements", href: "#achievements" },
 ]
 
-export function Footer({ isDark }: ThemeButtonProps) {
+export function Footer() {
     const currentYear = new Date().getFullYear();
+    const { isDark } = useTheme();
 
     const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string): void => {
         e.preventDefault()
@@ -45,7 +46,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                     <div className="text-center md:text-left space-y-4 sm:space-y-6" style={{ flex: 1.4 }}>
                         <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Let's Connect</h3>
                         <p
-                            className={`text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}
+                            className={`text-base sm:text-[17px] leading-relaxed mb-4 sm:mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}
                         >
                             I'm always open to discussing new opportunities, collaborations, and interesting projects.
                         </p>
@@ -58,7 +59,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                                 >
                                     <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
                                 </div>
-                                <span className={`text-xs sm:text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                                <span className={`text-sm sm:text-base ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                                     caominhnguyen03@gmail.com
                                 </span>
                             </div>
@@ -70,7 +71,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                                 >
                                     <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                                 </div>
-                                <span className={`text-xs sm:text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                                <span className={`text-sm sm:text-base ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                                     Ho Chi Minh City, Vietnam
                                 </span>
                             </div>
@@ -82,7 +83,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                                 >
                                     <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                                 </div>
-                                <span className={`text-xs sm:text-sm font-medium ${isDark ? "text-green-300" : "text-green-600"}`}>
+                                <span className={`text-sm sm:text-base font-medium ${isDark ? "text-green-300" : "text-green-600"}`}>
                                     Available for new opportunities
                                 </span>
                             </div>
@@ -97,7 +98,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                                     <a
                                         href={link.href}
                                         onClick={(e) => handleSmoothScroll(e, link.href)}
-                                        className={`inline-block py-1 px-2 rounded-md transition-all duration-300 text-sm sm:text-base ${isDark ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"
+                                        className={`inline-block py-1 px-2 rounded-md transition-all duration-300 text-base sm:text-[17px] ${isDark ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"
                                             }`}
                                     >
                                         {link.name}
@@ -174,7 +175,7 @@ export function Footer({ isDark }: ThemeButtonProps) {
                 >
                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Ready to Work Together?</h3>
                     <p
-                        className={`text-sm sm:text-base mb-4 sm:mb-6 max-w-2xl mx-auto ${isDark ? "text-gray-300" : "text-gray-600"}`}
+                        className={`text-base sm:text-[17px] mb-4 sm:mb-6 max-w-2xl mx-auto ${isDark ? "text-gray-300" : "text-gray-600"}`}
                     >
                         Whether you have a project in mind, need consultation, or just want to chat about technology, I'd love to
                         hear from you. Let's build something amazing together!
@@ -197,9 +198,9 @@ export function Footer({ isDark }: ThemeButtonProps) {
                                 }
                             }}
                             target="_blank"
-                            className={`inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 ${isDark
-                                ? "bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500"
-                                : "bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-400"
+                            className={`inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-base sm:text-[17px] transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 ${isDark
+                                ? "bg-red-600/90 hover:bg-red-600 text-white focus:ring-blue-500"
+                                : "bg-red-500/90 hover:bg-red-500 text-white focus:ring-blue-400"
                                 }`}
                         >
                             <Mail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
@@ -209,9 +210,9 @@ export function Footer({ isDark }: ThemeButtonProps) {
                         <a
                             href="/Nguyen-Cao-Minh-CV-SE.pdf"
                             download
-                            className={`inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 ${isDark
-                                ? "bg-gray-700 hover:bg-gray-600 text-white focus:ring-gray-500"
-                                : "bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-400"
+                            className={`inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold text-base sm:text-[17px] transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 ${isDark
+                                ? "bg-gradient-to-br from-[#EA4492] to-[#004E9A] hover:from-[#ea4492ed] hover:to-[#004d9aed] text-white focus:ring-gray-500"
+                                : "bg-gradient-to-br from-[#1CA7EC] to-[#4ADEDE] hover:from-[#1CA7ECed] hover:to-[#4ADEDEed] text-white focus:ring-gray-400"
                                 }`}
                         >
                             <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
@@ -223,14 +224,14 @@ export function Footer({ isDark }: ThemeButtonProps) {
                 <div
                     className={`border-t pt-6 sm:pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-4 ${isDark ? "border-gray-700" : "border-gray-200"}`}
                 >
-                    <p className={`text-xs sm:text-sm text-center md:text-left ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                    <p className={`text-xs sm:text-base text-center md:text-left ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         © {currentYear} Cao Minh Nguyen. All rights reserved.
                     </p>
 
                     <div className="flex items-center space-x-2">
-                        <span className={`text-xs sm:text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>Made with</span>
+                        <span className={`text-xs sm:text-base ${isDark ? "text-gray-400" : "text-gray-500"}`}>Made with</span>
                         <Heart className={`w-3 h-3 sm:w-4 sm:h-4 animate-pulse ${isDark ? "text-red-400" : "text-red-500"}`} />
-                        <span className={`text-xs sm:text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>from Vietnam</span>
+                        <span className={`text-xs sm:text-base ${isDark ? "text-gray-400" : "text-gray-500"}`}>from Vietnam</span>
                     </div>
                 </div>
             </div>

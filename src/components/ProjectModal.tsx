@@ -89,11 +89,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isDark, isO
 
     return (
         <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-99"
             onClick={handleBackdropClick}
         >
             <div
-                className={`w-full max-w-4xl max-h-[90vh] rounded-xl shadow-2xl transition-all duration-300 ease-out transform overflow-hidden ${isAnimating
+                className={`w-full max-w-4xl max-h-[90vh] max-sm:max-h-[95vh] rounded-xl shadow-2xl transition-all duration-300 ease-out transform overflow-hidden ${isAnimating
                     ? 'opacity-100 scale-100 translate-y-0'
                     : 'opacity-0 scale-95 translate-y-4'
                     } ${isDark ? 'bg-gray-900' : 'bg-white'}`}

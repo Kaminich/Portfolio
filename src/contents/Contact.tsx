@@ -2,10 +2,7 @@ import React, { memo, useState } from 'react';
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Toast } from '../components/Toast';
-
-interface ThemeButtonProps {
-    isDark: boolean;
-}
+import { useTheme } from '../hooks/useTheme';
 
 interface FormData {
     name: string;
@@ -14,7 +11,9 @@ interface FormData {
     message: string;
 }
 
-const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
+const Contact = () => {
+    const { isDark } = useTheme();
+
     const [formData, setFormData] = useState<FormData>({
         name: '',
         phone: '',
@@ -53,11 +52,21 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
         }));
     };
 
-    const handleFocus = (fieldName: string): void => {
+    const handleFocus = (e: React.FocusEvent<HTMLElement>, fieldName: string): void => {
+        const target = e.currentTarget as HTMLElement;
+        target.style.borderImage = isDark
+            ? 'linear-gradient(to right, #EA4492, #004E9A) 1'
+            : 'linear-gradient(to right, #1CA7EC, #4ADEDE) 1';
+        target.style.borderImageSlice = '1';
+        target.style.borderStyle = 'solid';
         setFocusedField(fieldName);
     };
 
-    const handleBlur = (): void => {
+    const handleBlur = (e: React.FocusEvent<HTMLElement>): void => {
+        const target = e.currentTarget as HTMLElement;
+        target.style.borderImage = '';
+        target.style.borderImageSlice = '';
+        target.style.borderStyle = '';
         setFocusedField('');
     };
 
@@ -227,12 +236,12 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                     type="text"
                                     value={formData.name}
                                     onChange={handleInputChange}
-                                    onFocus={() => handleFocus('name')}
+                                    onFocus={(e: React.FocusEvent<HTMLElement>) => handleFocus(e, 'name')}
                                     onBlur={handleBlur}
                                     required
-                                    className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-blue-500 focus:border-opacity-100 transition-all duration-300 ${isDark
-                                        ? 'border-gray-600 text-gray-100 focus:border-blue-400'
-                                        : 'border-gray-300 text-gray-900 focus:border-blue-500'
+                                    className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-opacity-100 transition-all duration-300 ${isDark
+                                        ? 'border-gray-600 text-gray-100'
+                                        : 'border-gray-300 text-gray-900'
                                         }`}
                                 />
                                 <label
@@ -250,11 +259,11 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                     type="tel"
                                     value={formData.phone}
                                     onChange={handleInputChange}
-                                    onFocus={() => handleFocus('phone')}
+                                    onFocus={(e: React.FocusEvent<HTMLElement>) => handleFocus(e, 'phone')}
                                     onBlur={handleBlur}
-                                    className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-blue-500 focus:border-opacity-100 transition-all duration-300 ${isDark
-                                        ? 'border-gray-600 text-gray-100 focus:border-blue-400'
-                                        : 'border-gray-300 text-gray-900 focus:border-blue-500'
+                                    className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-opacity-100 transition-all duration-300 ${isDark
+                                        ? 'border-gray-600 text-gray-100'
+                                        : 'border-gray-300 text-gray-900'
                                         }`}
                                 />
                                 <label
@@ -288,12 +297,12 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                 type="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                onFocus={() => handleFocus('email')}
+                                onFocus={(e: React.FocusEvent<HTMLElement>) => handleFocus(e, 'email')}
                                 onBlur={handleBlur}
                                 required
-                                className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-blue-500 focus:border-opacity-100 transition-all duration-300 ${isDark
-                                    ? 'border-gray-600 text-gray-100 focus:border-blue-400'
-                                    : 'border-gray-300 text-gray-900 focus:border-blue-500'
+                                className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-opacity-100 transition-all duration-300 ${isDark
+                                    ? 'border-gray-600 text-gray-100'
+                                    : 'border-gray-300 text-gray-900'
                                     }`}
                             />
                             <label
@@ -325,13 +334,13 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                 name="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
-                                onFocus={() => handleFocus('message')}
+                                onFocus={(e: React.FocusEvent<HTMLElement>) => handleFocus(e, 'message')}
                                 onBlur={handleBlur}
                                 required
                                 rows={6}
-                                className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-blue-500 focus:border-opacity-100 resize-none transition-all duration-300 ${isDark
-                                    ? 'border-gray-600 text-gray-100 focus:border-blue-400'
-                                    : 'border-gray-300 text-gray-900 focus:border-blue-500'
+                                className={`w-full px-4 pt-10 pb-3 text-lg bg-transparent border-0 border-b-2 border-opacity-50 focus:outline-none focus:border-opacity-100 resize-none transition-all duration-300 ${isDark
+                                    ? 'border-gray-600 text-gray-100'
+                                    : 'border-gray-300 text-gray-900'
                                     }`}
                             />
                             <label
@@ -351,12 +360,12 @@ const Contact: React.FC<ThemeButtonProps> = ({ isDark }) => {
                             type="submit"
                             disabled={isSubmitting}
                             onClick={handleSubmit}
-                            className={`rounded-full flex items-center justify-center gap-3 w-50 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:shadow-lg hover:-translate-y-0.5 transition-color duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${isDark ? 'focus:ring-offset-gray-800' : 'focus:ring-offset-white'
+                            className={`rounded-full flex items-center justify-center text-[17px] gap-3 w-50 py-4 text-white font-medium hover:shadow-lg hover:-translate-y-0.5 transition-color duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none bg-gradient-to-br ${isDark ? 'from-[#EA4492] to-[#004E9A] hover:from-[#ea4492ed] hover:to-[#004d9aed] focus:ring-offset-gray-800' : 'from-[#1CA7EC] to-[#4ADEDE] hover:from-[#1CA7ECed] hover:to-[#4ADEDEed] focus:ring-offset-white'
                                 }`}
                         >
                             {isSubmitting ? (
                                 <>
-                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                                     Sending...
                                 </>
                             ) : (

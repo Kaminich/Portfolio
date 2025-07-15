@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import type { ThemeButtonProps } from "./ThemeButton";
 import { Home, User, Briefcase, FolderOpen, Award, Star, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../hooks/useTheme";
 
 type SectionId = 'hero' | 'about' | 'experience' | 'projects' | 'skills' | 'achievements' | 'contact';
 
@@ -17,10 +17,11 @@ const sectionIcons = {
     contact: MessageCircle
 };
 
-export function Navbar({ isDark }: ThemeButtonProps) {
+export function Navbar() {
     const [activeSection, setActiveSection] = useState<SectionId>('hero');
-    const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+    const [isVisible, setIsVisible] = useState<boolean>(true);
+    const [lastScrollY, setLastScrollY] = useState<number>(0);
+    const { isDark } = useTheme();
 
     const handleScroll = (): void => {
         const scrollY = window.scrollY;
@@ -68,7 +69,7 @@ export function Navbar({ isDark }: ThemeButtonProps) {
                 {isVisible && (
                     <motion.nav
                         {...motionProps}
-                        className="fixed hidden md:block top-4 left-1/2 transform -translate-x-1/2 z-50"
+                        className="fixed hidden md:block top-4 left-1/2 transform -translate-x-1/2 z-90"
                     >
                         <div className={`backdrop-blur-md border rounded-full px-4 md:px-5 lg:px-7 py-2 md:py-2.5 lg:py-3 shadow-lg transition-all duration-800 ${isDark
                             ? 'bg-gray-900/80 border-gray-700/50'
@@ -79,11 +80,11 @@ export function Navbar({ isDark }: ThemeButtonProps) {
                                     <button
                                         key={section}
                                         onClick={() => scrollToSection(section)}
-                                        className={`relative capitalize font-medium transition-all duration-800 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-2.5 rounded-full cursor-pointer text-sm md:text-sm lg:text-base
-                      ${activeSection === section
+                                        className={`relative capitalize font-medium text-[18px] transition-all duration-800 px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-2.5 rounded-full cursor-pointer text-sm md:text-sm lg:text-base
+                                            ${activeSection === section
                                                 ? isDark
-                                                    ? 'text-white bg-gray-700/50 shadow-md'
-                                                    : 'text-black bg-white/20 shadow-md'
+                                                    ? 'text-white shadow-md'
+                                                    : 'text-black shadow-md'
                                                 : isDark
                                                     ? 'text-gray-300 hover:text-white hover:bg-gray-700/30'
                                                     : 'text-black/80 hover:text-black hover:bg-white/10'
@@ -91,7 +92,7 @@ export function Navbar({ isDark }: ThemeButtonProps) {
                                     >
                                         {section === 'hero' ? 'Home' : section}
                                         {activeSection === section && (
-                                            <div className={`absolute inset-0 rounded-full animate-pulse ${isDark
+                                            <div className={`absolute inset-0 rounded-full ${isDark
                                                 ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20'
                                                 : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30'
                                                 }`} />

@@ -1,8 +1,8 @@
 import React from 'react';
-import type { ThemeButtonProps } from './ThemeButton';
 import CurvedBracket from './CurvedBracket';
 import { OrgNode } from './OrgNode';
 import { motion } from 'framer-motion'
+import { useTheme } from '../hooks/useTheme';
 
 interface Skill {
     name: string;
@@ -43,7 +43,8 @@ export const skills: SkillsData = {
     ]
 };
 
-const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
+const SkillsOrgChart = () => {
+    const { isDark } = useTheme();
 
     return (
         <div className={`transition-colors duration-300 ${isDark ? 'border-gray-900' : 'border-gray-50'
@@ -65,7 +66,7 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                         viewport={{ once: false, amount: 0 }}
                         exit={{ opacity: 0 }}
                         className="flex justify-center">
-                        <div className={`h-12 border-1  ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
+                        <div className={`h-12 border-1 ${isDark ? 'border-white' : 'border-black'}`} />
                     </motion.div>
 
                     <div className="relative">
@@ -76,13 +77,13 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                             viewport={{ once: false, amount: 0 }}
                             exit={{ opacity: 0 }}
                             className="flex justify-center">
-                            <div className={`h-2 w-89.5 lg:w-130 xl:w-177 ml-29 xl:ml-29 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
+                            <div className={`h-2 w-89.5 lg:w-130 xl:w-[709.6px] ml-29 xl:ml-29 border-2 border-b-0 rounded-t-full ${isDark ? 'border-white' : 'border-black'}`}></div>
                         </motion.div>
 
                         <div className="flex justify-center gap-10 lg:gap-50.5 xl:gap-0 xl:justify-between items-start xl:w-5xl max-w-5xl mx-auto">
 
                             <div className="flex flex-col items-center">
-                                <div className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
+                                <div className={`h-8 border-1 ${isDark ? 'border-white' : 'border-black'}`} />
 
                                 <OrgNode isDark={isDark} slide='down-up'>
                                     <span className="text-base font-semibold">Technical Skill</span>
@@ -94,7 +95,7 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                     transition={{ duration: 0.8 }}
                                     viewport={{ once: false, amount: 0 }}
                                     exit={{ opacity: 0 }}
-                                    className={`h-6 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                    className={`h-6 border-1 ${isDark ? 'border-white' : 'border-black'}`} />
 
                                 <div className="relative">
                                     <motion.div
@@ -104,7 +105,7 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                         viewport={{ once: false, amount: 0 }}
                                         exit={{ opacity: 0 }}
                                         className="flex justify-center">
-                                        <div className={`h-2 w-67 mr-2.5 border-2 border-b-0 rounded-t-full ${isDark ? 'border-gray-600' : 'border-gray-400'}`}></div>
+                                        <div className={`h-2 w-67 mr-2.5 border-2 border-b-0 rounded-t-full ${isDark ? 'border-white' : 'border-black'}`} />
                                     </motion.div>
 
                                     <div className="flex justify-between items-start sm:gap-10 md:gap-25">
@@ -116,10 +117,10 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                 transition={{ duration: 0.8 }}
                                                 viewport={{ once: false, amount: 0 }}
                                                 exit={{ opacity: 0 }}
-                                                className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                                className={`h-8 border-1 ${isDark ? 'border-white' : 'border-black'}`} />
 
                                             <OrgNode isDark={isDark} slide='down-up'>
-                                                <span className="text-sm font-medium">Language</span>
+                                                <span className="text-[15px] font-medium">Language</span>
                                             </OrgNode>
 
                                             <div className="flex flex-col items-center">
@@ -129,12 +130,12 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                     transition={{ duration: 0.8 }}
                                                     viewport={{ once: false, amount: 0 }}
                                                     exit={{ opacity: 0 }}
-                                                    className={`h-6 border-1 last:mb-0 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                                    className={`h-6 border-1 last:mb-0 ${isDark ? 'border-white' : 'border-black'}`} />
                                                 <div className='relative w-39 flex flex-col items-center'>
                                                     {skills.technical.languages.map((lang, index) => (
                                                         <div key={index} className="mb-4 last:mb-0">
                                                             <OrgNode isDark={isDark} maxW='30' slide='right-left'>
-                                                                <span className="text-sm">{lang.name}</span>
+                                                                <span className="text-[15px]">{lang.name}</span>
                                                             </OrgNode>
                                                             {index < skills.technical.languages.length - 1 && (
                                                                 <CurvedBracket height={lang.height} isDark={isDark} className={`absolute left-0`} style={{ top: `calc(var(--spacing) * ${index * 17})` }} widthUp={32} widthDown={32} />
@@ -152,10 +153,10 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                 transition={{ duration: 0.8 }}
                                                 viewport={{ once: false, amount: 0 }}
                                                 exit={{ opacity: 0 }}
-                                                className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                                className={`h-8 border-1 ${isDark ? 'border-white' : 'border-black'}`} />
 
                                             <OrgNode isDark={isDark} slide='down-up'>
-                                                <span className="text-sm font-medium">Framework</span>
+                                                <span className="text-[15px] font-medium">Framework</span>
                                             </OrgNode>
 
                                             <div className="flex flex-col items-center">
@@ -165,12 +166,12 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                                     transition={{ duration: 0.8 }}
                                                     viewport={{ once: false, amount: 0 }}
                                                     exit={{ opacity: 0 }}
-                                                    className={`h-6 border-1 last:mb-0 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                                    className={`h-6 border-1 last:mb-0 ${isDark ? 'border-white' : 'border-black'}`} />
                                                 <div className='relative w-44 flex flex-col items-center'>
                                                     {skills.technical.frameworks.map((framework, index) => (
                                                         <div key={index} className="mb-4 last:mb-0">
                                                             <OrgNode isDark={isDark} slide='right-left'>
-                                                                <span className="text-sm">{framework.name}</span>
+                                                                <span className="text-[15px]">{framework.name}</span>
                                                             </OrgNode>
                                                             {index < skills.technical.frameworks.length - 1 && (
                                                                 <CurvedBracket height={framework.height} isDark={isDark} className='absolute left-0' style={{ top: `calc(var(--spacing) * ${index * 17})` }} widthUp={framework.wUp} widthDown={framework.wDown} />
@@ -191,19 +192,19 @@ const SkillsOrgChart: React.FC<ThemeButtonProps> = ({ isDark }) => {
                                     transition={{ duration: 0.8 }}
                                     viewport={{ once: false, amount: 0 }}
                                     exit={{ opacity: 0 }}
-                                    className={`h-8 border-1 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                    className={`h-8 border-1 ${isDark ? 'border-white' : 'border-black'}`} />
 
                                 <OrgNode isDark={isDark} slide='down-up'>
                                     <span className="text-base font-semibold">Soft Skill</span>
                                 </OrgNode>
 
                                 <div className="flex flex-col items-center">
-                                    <div className={`h-6 border-1 last:mb-0 ${isDark ? 'border-gray-600' : 'border-gray-400'}`} />
+                                    <div className={`h-6 border-1 last:mb-0 ${isDark ? 'border-white' : 'border-black'}`} />
                                     <div className='relative w-50 flex flex-col items-center'>
                                         {skills.soft.map((skill, index) => (
                                             <div key={index} className="mb-4 last:mb-0" style={skill.style}>
                                                 <OrgNode isDark={isDark} slide='right-left'>
-                                                    <span className="text-sm">{skill.name}</span>
+                                                    <span className="text-[15px]">{skill.name}</span>
                                                 </OrgNode>
                                                 {index < skills.soft.length - 1 && (
                                                     <CurvedBracket height={skill.height} isDark={isDark} className='absolute left-0' style={{ top: `calc(var(--spacing) * ${index * 17})` }} widthUp={skill.wUp} widthDown={skill.wDown} />

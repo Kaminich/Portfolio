@@ -32,8 +32,8 @@ const CurvedBracket: React.FC<CurvedBracketProps> = ({ height, isDark, className
                       C0,0 0,0 0,25 
                       L0,${height - 25} 
                       C0,${height} 0,${height} ${widthDown},${height}`}
-                    stroke={isDark ? "#9CA3AF" : "#6B7280"}
-                    strokeWidth="1"
+                    stroke={isDark ? "#FFFFFF" : "#000000"}
+                    strokeWidth="3"
                     fill="none"
                 />
             </svg>

@@ -1,5 +1,4 @@
 import { ProjectCard } from "../components/ProjectCard";
-import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
 import logo_F_Dental from "../assets/F-Dental/logo.png"
 import logo_OpalWed from "../assets/OpalWed/logo.png"
@@ -46,6 +45,7 @@ import sm_FI_Arch from "../assets/FI_Arch/sm.png";
 import smi_FI_Arch from "../assets/FI_Arch/smi.png";
 import smi_sm_FI_Arch from "../assets/FI_Arch/smi_sm.png";
 import { memo } from "react";
+import { useTheme } from "../hooks/useTheme";
 
 export interface ProjectType {
     title: string;
@@ -117,11 +117,14 @@ const projects: ProjectType[] = [
     }
 ];
 
-function Project({ isDark }: ThemeButtonProps) {
+function Project() {
+    const { isDark } = useTheme();
+
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-4 xl:gap-8">
+                {/* Main grid container */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8 lg:gap-4 xl:gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
@@ -137,7 +140,41 @@ function Project({ isDark }: ThemeButtonProps) {
                             <ProjectCard project={project} isDark={isDark} />
                         </motion.div>
                     ))}
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: false, amount: 0 }}
+                        exit={{ opacity: 0 }}
+                        className="w-full hidden sm:block lg:hidden">
+                        <div className="h-full flex items-center justify-center">
+                            <a
+                                href="https://github.com/Kaminich?tab=repositories"
+                                target="_blank"
+                                className={`flex items-center justify-center text-[17px] w-40 py-3 bg-gradient-to-br ${isDark ? 'from-[#EA4492] to-[#004E9A] hover:from-[#ea4492ed] hover:to-[#004d9aed]' : 'from-[#1CA7EC] to-[#4ADEDE] hover:from-[#1CA7ECed] hover:to-[#4ADEDEed]'} text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 shadow-lg`}
+                            >
+                                View more
+                            </a>
+                        </div>
+                    </motion.div>
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: false, amount: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex justify-center mt-12 sm:hidden lg:flex">
+                    <a
+                        href="https://github.com/Kaminich?tab=repositories"
+                        target="_blank"
+                        className={`flex items-center justify-center text-[17px] w-40 py-3 bg-gradient-to-br ${isDark ? 'from-[#EA4492] to-[#004E9A] hover:from-[#ea4492ed] hover:to-[#004d9aed]' : 'from-[#1CA7EC] to-[#4ADEDE] hover:from-[#1CA7ECed] hover:to-[#4ADEDEed]'} text-white rounded-full font-medium transform transition-all duration-300 hover:scale-105 shadow-lg`}
+                    >
+                        View more
+                    </a>
+                </motion.div>
             </div>
         </div>
     )

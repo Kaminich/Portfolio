@@ -1,4 +1,3 @@
-import { Github, AlertCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { ProjectType } from "../contents/Project";
 import { ProjectModal } from "./ProjectModal";
@@ -24,7 +23,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
         const container = containerRef.current;
         const containerWidth = container.offsetWidth;
 
-        // Create temporary elements to measure
         const tempContainer = document.createElement('div');
         tempContainer.style.cssText = `
             position: absolute;
@@ -53,12 +51,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
             tempContainer.appendChild(span);
             tempElements.push(span);
 
-            // Check if we've moved to a new line
             if (span.offsetTop > currentLineHeight) {
                 lineCount++;
                 currentLineHeight = span.offsetTop;
 
-                // If we're on the third line, stop here
                 if (lineCount >= 2) {
                     break;
                 }
@@ -69,7 +65,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
 
         document.body.removeChild(tempContainer);
 
-        // Set the visible technologies
         const visible = project.technologies.slice(0, lastVisibleIndex + 1);
         setVisibleTechs(visible);
         setHasOverflow(lastVisibleIndex < project.technologies.length - 1);
@@ -110,7 +105,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                     <div className={`absolute inset-0 bg-gradient-to-t ${isDark ? 'from-gray-900/30 to-transparent' : 'from-white/10 to-transparent'}`}></div>
                 </motion.div>
 
-                <div className="flex flex-col flex-grow p-4 sm:p-5 md:p-6">
+                <div className="flex flex-col flex-grow p-4 sm:p-5 md:p-6 pb-2 md:pb-2">
                     <motion.h3
                         initial={{ opacity: 0, y: 25 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -162,35 +157,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, isDark }) => 
                                 +{project.technologies.length - visibleTechs.length} more
                             </span>
                         )}
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: false, amount: 0 }}
-                        exit={{ opacity: 0 }}
-                        className="mt-auto flex flex-col sm:flex-row gap-2 sm:gap-3">
-                        <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`cursor-pointer flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg font-medium transition-all duration-300 border text-sm sm:text-base ${isDark
-                                ? 'bg-gray-800/80 hover:bg-gray-700 text-gray-200 border-gray-600/50'
-                                : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border-gray-300'
-                                }`}
-                        >
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                        </a>
-                        <button
-                            type="button"
-                            onClick={openModal}
-                            className="cursor-pointer flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base"
-                        >
-                            <AlertCircle className="w-4 h-4 mr-2" />
-                            Detail
-                        </button>
                     </motion.div>
                 </div>
             </div>

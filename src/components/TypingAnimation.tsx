@@ -20,7 +20,7 @@ export const TypingAnimation: React.FC<TypingAnimationProps> = ({ text, speed = 
     }, [currentIndex, text, speed]);
 
     return (
-        <span>
+        <span className="text-type">
             {displayText}
             {currentIndex < text.length && <span className="animate-pulse">|</span>}
         </span>

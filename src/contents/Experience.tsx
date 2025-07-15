@@ -1,9 +1,11 @@
 import { memo } from "react";
 import { ExperienceCard } from "../components/ExperienceCard";
-import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
+import { useTheme } from "../hooks/useTheme";
 
-function Experience({ isDark }: ThemeButtonProps) {
+function Experience() {
+    const { isDark } = useTheme();
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -23,26 +25,17 @@ function Experience({ isDark }: ThemeButtonProps) {
                     >
                         <ul className={`space-y-2 sm:space-y-3 transition-colors duration-300 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                             <li className="flex items-start">
-                                <span
-                                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mt-2 mr-2 sm:mr-3 shrink-0 transition-all duration-300 ${isDark ? "bg-blue-400 hover:bg-blue-300" : "bg-blue-500 hover:bg-blue-600"}`}
-                                />
-                                <span className="text-sm sm:text-base leading-relaxed">
+                                <span className="text-base sm:text-[17px] leading-relaxed">
                                     Collaborated with backend developers to implement responsive web interfaces using ReactJS and TypeScript
                                 </span>
                             </li>
                             <li className="flex items-start">
-                                <span
-                                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mt-2 mr-2 sm:mr-3 shrink-0 transition-all duration-300 ${isDark ? "bg-blue-400 hover:bg-blue-300" : "bg-blue-500 hover:bg-blue-600"}`}
-                                />
-                                <span className="text-sm sm:text-base leading-relaxed">
+                                <span className="text-base sm:text-[17px] leading-relaxed">
                                     Optimized performance and accessibility across multiple browsers and devices
                                 </span>
                             </li>
                             <li className="flex items-start">
-                                <span
-                                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mt-2 mr-2 sm:mr-3 shrink-0 transition-all duration-300 ${isDark ? "bg-blue-400 hover:bg-blue-300" : "bg-blue-500 hover:bg-blue-600"}`}
-                                />
-                                <span className="text-sm sm:text-base leading-relaxed">
+                                <span className="text-base sm:text-[17px] leading-relaxed">
                                     Managed source code using GitHub and gained experience with RESTful APIs
                                 </span>
                             </li>
@@ -54,7 +47,7 @@ function Experience({ isDark }: ThemeButtonProps) {
                         date="May 2024 - Present"
                         isDark={isDark}
                     >
-                        <p className={`transition-colors duration-300 leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                        <p className={`transition-colors duration-300 leading-relaxed text-[17px] ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                             Provided one-on-one tutoring to 3 university students in programming, helping them grasp key concepts and improve their understanding of core programming concepts and successfully navigate coursework.
                         </p>
                     </ExperienceCard>
@@ -64,7 +57,7 @@ function Experience({ isDark }: ThemeButtonProps) {
                         date="Aug 2023 - Dec 2023"
                         isDark={isDark}
                     >
-                        <p className={`transition-colors duration-300 leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+                        <p className={`transition-colors duration-300 leading-relaxed text-[17px] ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                             Participated in a student-led mentorship program designed to support and guide freshmen through academic, social, and campus life challenges during their transition into university.
                         </p>
                     </ExperienceCard>

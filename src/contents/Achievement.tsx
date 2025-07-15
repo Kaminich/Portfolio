@@ -1,7 +1,7 @@
 import { Trophy } from "lucide-react";
-import type { ThemeButtonProps } from "../components/ThemeButton";
 import { motion } from "framer-motion";
 import { memo } from "react";
+import { useTheme } from "../hooks/useTheme";
 
 const achievements: string[] = [
     "FPT University Honorable Student - Spring 2025",
@@ -9,7 +9,9 @@ const achievements: string[] = [
     "IBSTPI Certificate 2023"
 ];
 
-function Achievement({ isDark }: ThemeButtonProps) {
+function Achievement() {
+    const { isDark } = useTheme();
+
     return (
         <>
             <div
@@ -38,7 +40,7 @@ function Achievement({ isDark }: ThemeButtonProps) {
                                 }
                             >
                                 <Trophy className={`w-6 h-6 mr-4 shrink-0 ${isDark ? "text-yellow-400" : "text-yellow-500"}`} />
-                                <span className={`font-medium transition-colors duration-300 ${isDark ? "text-gray-100" : "text-gray-800"}`}>
+                                <span className={`font-medium md:text-[17px] transition-colors duration-300 ${isDark ? "text-gray-100" : "text-gray-800"}`}>
                                     {achievement}
                                 </span>
                             </div>

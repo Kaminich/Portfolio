@@ -31,6 +31,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-type {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p,
+span,
+div {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .text-rotate {
   display: flex;
   flex-wrap: wrap;

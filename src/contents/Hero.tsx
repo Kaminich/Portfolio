@@ -1,11 +1,13 @@
 import { ChevronDown } from "lucide-react";
 import RotatingText from "../blocks/TextAnimations/RotatingText/RotatingText";
-import type { ThemeButtonProps } from "../components/ThemeButton";
 import { TypingAnimation } from "../components/TypingAnimation";
 import { memo } from "react";
 import ProfileCard from "../components/ProfileCard";
+import { useTheme } from "../hooks/useTheme";
 
-function Hero({ isDark }: ThemeButtonProps) {
+function Hero() {
+    const { isDark } = useTheme();
+
     return (
         <div>
             <div className="max-w-7xl mx-auto px-4 max-sm:px-0 sm:px-6 lg:px-8 md:pt-0 max-xl:pt-5 max-xl:pb-16 max-sm:pb-10">
@@ -13,7 +15,7 @@ function Hero({ isDark }: ThemeButtonProps) {
 
                     <div className="max-sm:hidden flex-1 xl:flex-2 text-left max-lg:flex max-lg:flex-col max-lg:items-start max-lg:w-full xl:mt-5">
                         <h1
-                            className={`text-3xl sm:text-4xl md:text-6xl lg:text-[73px] xl:text-7xl font-bold mb-4 md:mb-6 transition-colors duration-800 tracking-wide leading-tight md:min-h-[155px] lg:min-h-[188px] xl:min-h-[186px] bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent animate-pulse ${isDark ? 'hover:from-blue-400 hover:via-purple-400 hover:to-cyan-400' : 'hover:from-blue-700 hover:via-purple-700 hover:to-cyan-600'}`}
+                            className={`text-3xl sm:text-4xl md:text-6xl lg:text-[80px] xl:text-[70px] font-bold mb-4 md:mb-6 transition-colors duration-800 tracking-wide leading-tight md:min-h-[155px] lg:min-h-[188px] xl:min-h-[186px] bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent animate-pulse ${isDark ? 'hover:from-blue-400 hover:via-purple-400 hover:to-cyan-400' : 'hover:from-blue-700 hover:via-purple-700 hover:to-cyan-600'}`}
                         >
                             <TypingAnimation text="Hi, I'm Nguyen Cao Minh" speed={150} />
                         </h1>
@@ -38,7 +40,6 @@ function Hero({ isDark }: ThemeButtonProps) {
                         <ProfileCard
                             avatarUrl="/profile.png"
                             title="Nguyen Cao Minh"
-                            isDark={isDark}
                         />
                     </div>
 
