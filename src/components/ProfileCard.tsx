@@ -66,7 +66,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                                 }`}
                         >
                             <Facebook className="w-6 h-6 z-10 transition-transform duration-450 group-hover:-translate-x-8" />
-                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-sm transition-all duration-500 group-hover:opacity-100 ml-3">
+                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-[15px] transition-all duration-500 group-hover:opacity-100 ml-3">
                                 Facebook
                             </span>
                         </a>
@@ -92,7 +92,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                                 }`}
                         >
                             <Mail className="w-6 h-6 z-10 transition-transform duration-500 group-hover:-translate-x-4" />
-                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-sm transition-all duration-500 group-hover:opacity-100 ml-3.5">
+                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-[15px] transition-all duration-500 group-hover:opacity-100 ml-3.5">
                                 Mail
                             </span>
                         </a>
@@ -106,7 +106,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                                 }`}
                         >
                             <ZaloIcon className="w-8 h-8 z-10 transition-transform duration-500 group-hover:-translate-x-4.5" />
-                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-sm transition-all duration-500 group-hover:opacity-100 ml-4">
+                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-[15px] transition-all duration-500 group-hover:opacity-100 ml-4">
                                 Zalo
                             </span>
                         </a>
@@ -120,7 +120,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                                 }`}
                         >
                             <Github className="w-6 h-6 z-10 transition-transform duration-500 group-hover:-translate-x-5.5" />
-                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-sm transition-all duration-500 group-hover:opacity-100 ml-4">
+                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-[15px] transition-all duration-500 group-hover:opacity-100 ml-4">
                                 GitHub
                             </span>
                         </a>
@@ -134,7 +134,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                                 }`}
                         >
                             <Linkedin className="w-6 h-6 z-10 transition-transform duration-500 group-hover:-translate-x-7" />
-                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-sm transition-all duration-500 group-hover:opacity-100 ml-4">
+                            <span className="absolute left-1/2 transform -translate-x-1/2 opacity-0 whitespace-nowrap text-[15px] transition-all duration-500 group-hover:opacity-100 ml-4">
                                 LinkedIn
                             </span>
                         </a>
