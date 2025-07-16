@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Portfolio from "./Portfolio.tsx";
+import { useTheme } from "./hooks/useTheme.tsx";
 
 export default function LoadingScreen() {
     const [isReady, setIsReady] = useState<boolean>(false);
     const [progress, setProgress] = useState<number>(0);
     const [currentText, setCurrentText] = useState<number>(0);
+    const { isDark } = useTheme();
 
     const loadingTexts = [
         "Loading portfolio...",
@@ -46,7 +48,7 @@ export default function LoadingScreen() {
     }, []);
 
     return isReady ? <Portfolio /> : (
-        <div className={`min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center overflow-hidden relative transition-opacity duration-1000 ${progress >= 100 ? 'animate-pulse' : ''}`}>
+        <div className={`min-h-screen bg-gradient-to-br ${isDark ? 'from-gray-900 via-black to-gray-900' : 'bg-white'} flex items-center justify-center overflow-hidden relative transition-opacity duration-1000 ${progress >= 100 ? 'animate-pulse' : ''}`}>
             {/* Code-like background pattern */}
             <div className="absolute inset-0 opacity-5">
                 <div className="absolute top-10 left-10 text-green-400 font-mono text-xs">
@@ -64,7 +66,7 @@ export default function LoadingScreen() {
             </div>
 
             {/* Animated grid */}
-            <div className="absolute inset-0 bg-gray-900 opacity-20">
+            <div className={`absolute inset-0 ${isDark ? 'bg-gray-900' : 'bg-white'} opacity-20`}>
                 <div className="absolute inset-0" style={{
                     backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), 
                            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
@@ -105,7 +107,7 @@ export default function LoadingScreen() {
                 <div className="space-y-8">
                     {/* Current status */}
                     <div className="h-10 flex items-center justify-center">
-                        <p className={`text-gray-200 text-xl font-medium transition-all duration-700 transform ${currentText === 4 ? 'text-cyan-400 text-2xl' : ''}`}>
+                        <p className={`${isDark ? 'text-gray-200' : 'text-gray-600'} text-xl font-medium transition-all duration-700 transform ${currentText === 4 ? 'text-cyan-400 text-2xl' : ''}`}>
                             {loadingTexts[currentText]}
                         </p>
                     </div>
@@ -124,7 +126,7 @@ export default function LoadingScreen() {
 
                         {/* Progress stats */}
                         <div className="mt-4 flex justify-between items-center">
-                            <span className="text-gray-400 text-sm font-mono">
+                            <span className={`${isDark ? 'text-gray-400' : 'text-gray-500'} text-sm font-mono`}>
                                 {progress >= 100 ? 'Ready!' : 'Loading assets...'}
                             </span>
                             <span className={`text-blue-400 text-sm font-mono font-bold ${progress >= 100 ? 'text-cyan-400' : ''}`}>
@@ -136,7 +138,7 @@ export default function LoadingScreen() {
 
                 {/* Footer hint */}
                 <div className="mt-16 opacity-70">
-                    <p className="text-gray-400 text-sm">
+                    <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} text-sm`}>
                         {progress >= 100 ? 'Launching portfolio...' : 'Preparing an amazing experience for you...'}
                     </p>
                 </div>
